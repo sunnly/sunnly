@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>wang.sunnly</groupId>
+        <artifactId>macro-dependencies</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../macro/macro-dependencies</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>wang.sunnly</groupId>
+    <artifactId>sunnly</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>微服务基础框架</description>
+    <modules>
+        <module>sunnly-modules</module>
+    </modules>
+    <dependencies>
+
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>spring-milestone</id>
+            <name>Spring Milestone</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshot</id>
+            <name>Spring Snapshot</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>

@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.sunnly.wang:8848
+        group: SUNNLY-MICROSERVICES
+        ext-config[0]:
+          data-id: ${spring.application.name}-${spring.profiles.active}.yml
+          group: ${spring.cloud.nacos.config.group}
+        ext-config[1]:
+          data-id: ${spring.application.name}-mysql-${spring.profiles.active}.yml
+          group: ${spring.cloud.nacos.config.group}
+          refresh: true
+      #        shared-dataids: nacos-demo.yml
+      #        refreshable-dataids: nnn-ddd.yml
+      discovery:
+        server-addr: nacos.sunnly.wang:8848
+  application:
+    name: sunnly-modules-async-client
+  profiles:
+    active: dev
+server:
+  port: 10022
+
+#macro:
+#  fileupload:
+#    server: sunnly-modules-fileserver

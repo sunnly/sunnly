@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: sunnly-modules-logger
+          uri: lb://sunnly-modules-logger
+          order: 8000
+          predicates:
+            - Path=/logger/**
+          filters:
+            - StripPrefix=1
