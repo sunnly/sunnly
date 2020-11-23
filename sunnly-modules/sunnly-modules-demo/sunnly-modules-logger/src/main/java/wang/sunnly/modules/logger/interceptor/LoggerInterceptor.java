@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
 
-    private LoggerService loggerService;
+    private final LoggerService loggerService;
 
     public LoggerInterceptor(LoggerService loggerService){
         this.loggerService = loggerService;

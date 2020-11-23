@@ -50,7 +50,7 @@ public class AsynFeignServiceImpl implements AsyncFeignService {
             sends.add(future.get());
         }
         log.info("" + sends.size());
-        log.info("feign 异步执行done..getReturnValueMange.{}, {}", Thread.currentThread().getName(), String.valueOf(System.currentTimeMillis() - currentTime));
+        log.info("feign 异步执行done..getReturnValueMange.{}, {}", Thread.currentThread().getName(), (System.currentTimeMillis() - currentTime));
         return new AsyncResult<>(sends);
 
     }

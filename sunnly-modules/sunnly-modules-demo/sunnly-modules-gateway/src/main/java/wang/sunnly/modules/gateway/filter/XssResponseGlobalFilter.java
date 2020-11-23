@@ -17,6 +17,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * XssResponseGlobalFilter
@@ -44,10 +45,10 @@ public class XssResponseGlobalFilter implements Ordered, GlobalFilter {
                         dataBuffer.read(content);
                         //释放掉内存
                         DataBufferUtils.release(dataBuffer);
-                        String result = new String(content, Charset.forName("UTF-8"));
+                        String result = new String(content, StandardCharsets.UTF_8);
                         //result就是response的值，对result进行去XSS
                         result = XssCleanRuleUtils.xssClean(result);
-                        byte[] uppedContent = new String(result.getBytes(), Charset.forName("UTF-8")).getBytes();
+                        byte[] uppedContent = new String(result.getBytes(), StandardCharsets.UTF_8).getBytes();
                         return bufferFactory.wrap(uppedContent);
                     }));
                 }

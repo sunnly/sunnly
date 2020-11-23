@@ -14,12 +14,11 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>微服务基础框架</description>
+    <description>微服务基础框架测试包</description>
     <modules>
         <module>sunnly-modules</module>
     </modules>
     <dependencies>
-
     </dependencies>
     <repositories>
         <repository>
