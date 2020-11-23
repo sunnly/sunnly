@@ -18,7 +18,7 @@
 
         <dependency>
             <groupId>wang.sunnly</groupId>
-            <artifactId>macro-tools-schedule</artifactId>
+            <artifactId>macro-tools-scheduled</artifactId>
             <version>1.0.0</version>
         </dependency>
 

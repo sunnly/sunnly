@@ -2,7 +2,7 @@ package wang.sunnly.modules.scheduled.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import wang.sunnly.schedule.job.ScheduledTaskJob;
+import wang.sunnly.scheduled.job.ScheduledTaskJob;
 
 /**
  * ScheduledTask01

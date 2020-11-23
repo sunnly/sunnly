@@ -4,8 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wang.sunnly.modules.scheduled.mapper.ScheduledTaskMapper;
-import wang.sunnly.schedule.entity.ScheduledTaskEntity;
-import wang.sunnly.schedule.service.BaseScheduledTaskService;
+import wang.sunnly.scheduled.entity.ScheduledTaskEntity;
+import wang.sunnly.scheduled.service.BaseScheduledTaskService;
 
 import java.util.List;
 
