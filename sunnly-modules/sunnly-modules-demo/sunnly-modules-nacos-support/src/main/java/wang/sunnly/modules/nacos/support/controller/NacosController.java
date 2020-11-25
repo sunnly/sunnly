@@ -30,30 +30,30 @@ public class NacosController {
     }
 
     @GetMapping("config/{dataId}/{group}")
-    public String getConfig(@PathVariable("dataId") String dataId,@PathVariable("group") String group) throws NacosException {
+    public String getConfig(@PathVariable("dataId") String dataId, @PathVariable("group") String group) throws NacosException {
         return macroNacosConfigService.getConfig(dataId, group);
     }
 
     @DeleteMapping("config/{dataId}/{group}")
-    public boolean removeConfig(@PathVariable("dataId") String dataId,@PathVariable("group") String group) throws NacosException {
+    public boolean removeConfig(@PathVariable("dataId") String dataId, @PathVariable("group") String group) throws NacosException {
         return macroNacosConfigService.removeConfig(dataId, group);
     }
 
     @PostMapping("config/{dataId}/{group}")
     public boolean publishConfig(@PathVariable("dataId") String dataId,
                                  @PathVariable("group") String group,
-                                 @RequestBody String content) throws NacosException{
-        return macroNacosConfigService.publishConfig(dataId,group,content);
+                                 @RequestBody String content) throws NacosException {
+        return macroNacosConfigService.publishConfig(dataId, group, content);
     }
 
     @GetMapping("listener/{dataId}/{group}")
-    public String addConfigListener(@PathVariable("dataId") String dataId,@PathVariable("group") String group) throws NacosException {
+    public String addConfigListener(@PathVariable("dataId") String dataId, @PathVariable("group") String group) throws NacosException {
         macroNacosConfigService.addConfigListener(dataId, group);
         return "add success";
     }
 
     @DeleteMapping("listener/{dataId}/{group}")
-    public String deleteConfigListener(@PathVariable("dataId") String dataId,@PathVariable("group") String group) throws NacosException {
+    public String deleteConfigListener(@PathVariable("dataId") String dataId, @PathVariable("group") String group) throws NacosException {
         macroNacosConfigService.removeConfigListener(dataId, group);
         return "remove success";
     }

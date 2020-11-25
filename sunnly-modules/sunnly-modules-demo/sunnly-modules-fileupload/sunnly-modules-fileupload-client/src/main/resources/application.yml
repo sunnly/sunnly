@@ -1,0 +1,4 @@
+macro:
+  feign:
+    file:
+      service: sunnly-modules-fileserver

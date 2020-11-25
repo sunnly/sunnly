@@ -4,6 +4,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,7 +68,7 @@ public class GeneralUploadController {
     @PostMapping(value = "sends")
     public ObjectResult<List<Map<String, String>>> sends() {
 
-        //TODO 测试未成功，传入参数为空，待审查
+        //TODO 测试未成功，传入参数为空，待审查,暂考虑动态多文件上传方式发生本地文件
         MultipartFile[] files = {
                 getMulFile(new File("D:\\1.txt")),
                 getMulFile(new File("D:\\2.txt"))

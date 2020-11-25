@@ -18,7 +18,7 @@ import java.util.Map;
  * @author Sunnly
  * @since 2020/10/30 11:45
  */
-@FeignClient(name = "sunnly-modules-fileserver", configuration = FeignSupportConfig.class)
+@FeignClient(name = "${macro.feign.file.service}", configuration = FeignSupportConfig.class)
 public interface FileUploadGeneralFeign {
 
     /**
