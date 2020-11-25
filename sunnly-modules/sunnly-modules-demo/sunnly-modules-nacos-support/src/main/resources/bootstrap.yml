@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: sunnly-nacos-support
+  cloud:
+    nacos:
+      config:
+        server-addr: ${DNACOS_ADDR:nacos.sunnly.wang:8848}
+        file-extension: yml
+      discovery:
+        server-addr: ${DNACOS_ADDR:nacos.sunnly.wang:8848}
+  profiles:
+    active: dev
+
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 10020
