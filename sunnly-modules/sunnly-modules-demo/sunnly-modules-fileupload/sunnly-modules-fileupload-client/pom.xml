@@ -19,12 +19,12 @@
             <groupId>wang.sunnly</groupId>
             <artifactId>macro-tools-feign-uploadfile</artifactId>
             <version>1.0.0</version>
-            <!--<exclusions>
+            <exclusions>
                 <exclusion>
                     <groupId>com.netflix.feign</groupId>
                     <artifactId>feign-core</artifactId>
                 </exclusion>
-            </exclusions>-->
+            </exclusions>
         </dependency>
 
 

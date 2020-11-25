@@ -84,7 +84,7 @@ public class DynamicUploadController {
     @PostMapping(value = "send")
     public ObjectResult<Map<String, String>> send() {
 
-        MultipartFile file = getMulFile(new File("G:\\2019年个人年终工作总结.doc"));
+        MultipartFile file = getMulFile(new File("D:\\1.txt"));
         String labelUrl = "http://sunnly-modules-fileserver";
         List<ServiceInstance> instances = discoveryClient.getInstances("sunnly-modules-fileserver");
         labelUrl = "http://".concat(instances.get(0).getHost()).concat(":").concat(instances.get(0).getPort() + "");
@@ -100,8 +100,8 @@ public class DynamicUploadController {
     public ObjectResult<List<Map<String, String>>> sends() {
 
         MultipartFile[] files = {
-                getMulFile(new File("G:\\2019年个人年终工作总结.doc")),
-                getMulFile(new File("G:\\0801 自选股同花顺导入文档.sel"))
+                getMulFile(new File("D:\\2.txt")),
+                getMulFile(new File("D:\\1.txt"))
         };
         String labelUrl = "http://sunnly-modules-fileserver";
         List<ServiceInstance> instances = discoveryClient.getInstances("sunnly-modules-fileserver");

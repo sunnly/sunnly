@@ -60,7 +60,7 @@ public class GeneralUploadController {
 
     @PostMapping(value = "send")
     public ObjectResult<Map<String, String>> send(HttpServletRequest request) throws IOException, ServletException {
-        MultipartFile file = getMulFile(new File("G:\\2019年个人年终工作总结.doc"));
+        MultipartFile file = getMulFile(new File("D:\\1.txt"));
         return fileUploadGeneralFeign.upload(file);
     }
 
@@ -69,8 +69,8 @@ public class GeneralUploadController {
 
         //TODO 测试未成功，传入参数为空，待审查
         MultipartFile[] files = {
-                getMulFile(new File("G:\\2019年个人年终工作总结.doc")),
-                getMulFile(new File("G:\\0801 自选股同花顺导入文档.sel"))
+                getMulFile(new File("D:\\1.txt")),
+                getMulFile(new File("D:\\2.txt"))
         };
         return fileUploadGeneralFeign.upload(files);
     }
