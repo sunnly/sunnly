@@ -3,16 +3,16 @@ spring:
     nacos:
       config:
         server-addr: nacos.sunnly.wang:8848
+        file-extension: yml
         group: SUNNLY-MICROSERVICES
-        ext-config[0]:
-          data-id: ${spring.application.name}-${spring.profiles.active}.yml
-          group: ${spring.cloud.nacos.config.group}
-        ext-config[1]:
-          data-id: ${spring.application.name}-mysql-${spring.profiles.active}.yml
-          group: ${spring.cloud.nacos.config.group}
-          refresh: true
-      #        shared-dataids: nacos-demo.yml
-      #        refreshable-dataids: nnn-ddd.yml
+        shared-configs:
+          - data-id: sunnly-modules-scheduled-aaa1.yml
+            group: ${spring.cloud.nacos.config.group}
+          - data-id: ${spring.application.name}-bbb1.yml
+            group: ${spring.cloud.nacos.config.group}
+        extension-configs:
+          - data-id: sunnly-modules-scheduled-aaa.yml
+            group: ${spring.cloud.nacos.config.group}
       discovery:
         server-addr: nacos.sunnly.wang:8848
   application:
@@ -20,4 +20,4 @@ spring:
   profiles:
     active: dev
 server:
-  port: 10001
+  port: 10010
