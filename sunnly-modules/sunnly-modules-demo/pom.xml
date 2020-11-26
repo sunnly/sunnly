@@ -21,6 +21,7 @@
         <module>sunnly-modules-gateway</module>
         <module>sunnly-modules-nacos-support</module>
         <module>sunnly-modules-asyncfeign</module>
+        <module>sunnly-modules-nacos-support</module>
     </modules>
 
     <dependencies>
