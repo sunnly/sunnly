@@ -3,7 +3,7 @@ package wang.sunnly.modules.fileupload.client.feign;
 import feign.Param;
 import feign.RequestLine;
 import org.springframework.web.multipart.MultipartFile;
-import wang.sunnly.common.web.msg.result.ObjectResult;
+import wang.sunnly.common.web.msg.result.ObjectResponse;
 
 import java.util.List;
 import java.util.Map;
@@ -22,7 +22,7 @@ public interface FileUploadDynamicFeign {
      * @return 上传后返回信息
      */
     @RequestLine("POST /upload/file")
-    ObjectResult<Map<String, String>> upload(@Param("file")  MultipartFile file);
+    ObjectResponse<Map<String, String>> upload(@Param("file")  MultipartFile file);
 
     /**
      * 多文件上传feign接口
@@ -30,5 +30,5 @@ public interface FileUploadDynamicFeign {
      * @return 上传后返回信息
      */
     @RequestLine("POST /upload/files")
-    ObjectResult<List<Map<String, String>>> upload(@Param("files")  MultipartFile[] files);
+    ObjectResponse<List<Map<String, String>>> upload(@Param("files")  MultipartFile[] files);
 }

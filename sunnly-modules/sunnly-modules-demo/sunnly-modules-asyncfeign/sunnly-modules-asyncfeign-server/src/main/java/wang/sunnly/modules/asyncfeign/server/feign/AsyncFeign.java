@@ -3,10 +3,8 @@ package wang.sunnly.modules.asyncfeign.server.feign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import wang.sunnly.common.web.msg.result.ObjectResult;
+import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.asyncfeign.server.feign.impl.AsyncFeignImpl;
-
-import java.util.Map;
 
 /**
  * AsyncFeign
@@ -22,5 +20,5 @@ public interface AsyncFeign {
      * @return ObjectResult
      */
     @RequestMapping("send")
-    ObjectResult<String> send(@RequestParam("send") String send);
+    ObjectResponse<String> send(@RequestParam("send") String send);
 }

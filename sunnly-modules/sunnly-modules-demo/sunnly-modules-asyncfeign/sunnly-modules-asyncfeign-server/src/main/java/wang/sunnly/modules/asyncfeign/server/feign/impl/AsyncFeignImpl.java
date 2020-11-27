@@ -1,10 +1,7 @@
 package wang.sunnly.modules.asyncfeign.server.feign.impl;
 
-import org.springframework.cloud.openfeign.FeignClient;
-import wang.sunnly.common.web.msg.result.ObjectResult;
+import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.asyncfeign.server.feign.AsyncFeign;
-
-import java.util.Map;
 
 /**
  * AsyncFeign
@@ -14,7 +11,7 @@ import java.util.Map;
  */
 public class AsyncFeignImpl implements AsyncFeign {
     @Override
-    public ObjectResult<String> send(String key) {
+    public ObjectResponse<String> send(String key) {
         return null;
     }
 }

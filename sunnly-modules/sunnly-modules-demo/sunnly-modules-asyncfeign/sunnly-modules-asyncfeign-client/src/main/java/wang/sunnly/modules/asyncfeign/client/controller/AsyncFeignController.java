@@ -3,9 +3,8 @@ package wang.sunnly.modules.asyncfeign.client.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import wang.sunnly.common.web.msg.result.ObjectResult;
+import wang.sunnly.common.web.msg.result.ObjectResponse;
 
-import java.util.Map;
 import java.util.Random;
 
 /**
@@ -19,7 +18,7 @@ import java.util.Random;
 public class AsyncFeignController {
 
     @RequestMapping("send")
-    public ObjectResult<String> send(@RequestParam("send") String send){
+    public ObjectResponse<String> send(@RequestParam("send") String send){
         System.out.println(send);
         Random random = new Random();
         try {
@@ -27,6 +26,6 @@ public class AsyncFeignController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return new ObjectResult<String>().setData("==="+send);
+        return new ObjectResponse<String>().setData("==="+send);
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import wang.sunnly.common.web.msg.result.ObjectResult;
+import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.feign.uploadfile.config.FeignSupportConfig;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public interface FileUploadGeneralFeign {
      * @return 返回上传后信息
      */
     @PostMapping(value = "upload/file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    ObjectResult<Map<String, String>> upload(@RequestPart(value = "file") MultipartFile file);
+    ObjectResponse<Map<String, String>> upload(@RequestPart(value = "file") MultipartFile file);
 
     /**
      * 多文件上传feign，调试未成功
@@ -35,5 +35,5 @@ public interface FileUploadGeneralFeign {
      * @return 返回上传后信息
      */
     @PostMapping(value = "upload/files", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    ObjectResult<List<Map<String, String>>> upload(@Param(value = "files") MultipartFile[] files);
+    ObjectResponse<List<Map<String, String>>> upload(@Param(value = "files") MultipartFile[] files);
 }

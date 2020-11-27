@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
-import wang.sunnly.common.web.msg.result.ObjectResult;
+import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.asyncfeign.server.feign.AsyncFeign;
 import wang.sunnly.modules.asyncfeign.server.service.AsyncFeignService;
 
@@ -32,7 +32,7 @@ public class AsynFeignServiceImpl implements AsyncFeignService {
     public Future<String> send(int i) {
         log.info("feign 异步执行 start ...{} ", Thread.currentThread().getName());
         long begin = System.currentTimeMillis();
-        ObjectResult<String> send = asyncFeign.send("sss" + i);
+        ObjectResponse<String> send = asyncFeign.send("sss" + i);
         log.info("feign 异步执行 done ...{}, {}", Thread.currentThread().getName(), System.currentTimeMillis() - begin);
         return new AsyncResult<>(send.getData());
     }
