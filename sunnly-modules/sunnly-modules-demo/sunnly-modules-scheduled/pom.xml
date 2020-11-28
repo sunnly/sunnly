@@ -28,6 +28,12 @@
             <version>3.2.8.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>wang.sunnly</groupId>
+            <artifactId>macro-common-web</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

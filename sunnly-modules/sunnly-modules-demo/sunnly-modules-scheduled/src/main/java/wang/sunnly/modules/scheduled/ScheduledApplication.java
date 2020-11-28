@@ -3,6 +3,7 @@ package wang.sunnly.modules.scheduled;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
 import wang.sunnly.scheduled.annotation.EnableMacroSchedule;
 
 /**
@@ -16,6 +17,6 @@ import wang.sunnly.scheduled.annotation.EnableMacroSchedule;
 @EnableMacroSchedule
 public class ScheduledApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ScheduledApplication.class,args);
+        SpringApplication.run(ScheduledApplication.class, args);
     }
 }

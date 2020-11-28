@@ -1,13 +1,19 @@
 package wang.sunnly.modules.scheduled.controller;
 
-import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import wang.sunnly.common.core.exception.sub.ArgumentException;
+import wang.sunnly.common.core.exception.sup.BaseMacroException;
+import wang.sunnly.common.web.exception.enums.ArgumentResponseEnum;
+import wang.sunnly.common.web.exception.enums.CommonResponseEnum;
+import wang.sunnly.common.web.exception.handler.UnifiedExceptionHandler;
+import wang.sunnly.common.web.msg.result.ListResponse;
+import wang.sunnly.modules.scheduled.enums.SelfResponseEnum;
 import wang.sunnly.scheduled.entity.ScheduledTaskEntity;
-import wang.sunnly.scheduled.job.ScheduledTaskJob;
 import wang.sunnly.scheduled.service.ScheduledTaskService;
 import wang.sunnly.scheduled.status.ScheduledStatus;
 
@@ -20,11 +26,14 @@ import java.util.List;
  * @since 2020/10/22 0022 21:41
  */
 @RestController
-@RequestMapping("/scheduled")
+@RequestMapping(value = "/scheduled", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class ScheduledTaskController {
 
     @Autowired
     ScheduledTaskService scheduledTaskService;
+
+    @Autowired
+    UnifiedExceptionHandler unifiedExceptionHandler;
 
     /**
      * 获取任务列表
@@ -33,6 +42,36 @@ public class ScheduledTaskController {
     @GetMapping("/taskList")
     public List<ScheduledTaskEntity> taskList() {
         return scheduledTaskService.taskList();
+    }
+
+    @GetMapping("/taskList1")
+    public ListResponse<ScheduledTaskEntity> t(){
+        List<ScheduledTaskEntity> scheduledTaskEntities = scheduledTaskService.taskList();
+        return new ListResponse<>(scheduledTaskEntities);
+    }
+
+
+    @GetMapping("/taskList2")
+    public ListResponse<ScheduledTaskEntity> t2(){
+        ArgumentResponseEnum.DATA_CONVERSION_ERROR.assertFail();
+        List<ScheduledTaskEntity> scheduledTaskEntities = scheduledTaskService.taskList();
+        return new ListResponse<>(scheduledTaskEntities);
+    }
+    @GetMapping("/taskList3")
+    public ListResponse<ScheduledTaskEntity> t3(){
+        throw new ArgumentException(CommonResponseEnum.FAIL, new Object[]{""}, "ss");
+    }
+
+    @GetMapping("/taskList4")
+    public ListResponse<ScheduledTaskEntity> t4(){
+        throw new RuntimeException("------------===================------------");
+    }
+
+
+    @GetMapping(value = "/taskList6", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ListResponse<ScheduledTaskEntity> t6(){
+      SelfResponseEnum.MYSELFRESPONSE.assertFail();
+        return null;
     }
 
     /**

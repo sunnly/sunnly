@@ -19,5 +19,9 @@ spring:
     name: sunnly-modules-scheduled
   profiles:
     active: dev
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
 server:
   port: 10010
