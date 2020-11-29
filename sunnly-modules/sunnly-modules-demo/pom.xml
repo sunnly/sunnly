@@ -22,6 +22,7 @@
         <module>sunnly-modules-nacos-support</module>
         <module>sunnly-modules-asyncfeign</module>
         <module>sunnly-modules-sercet</module>
+        <module>sunnly-modules-similar</module>
     </modules>
 
     <dependencies>
