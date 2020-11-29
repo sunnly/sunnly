@@ -1,0 +1,16 @@
+
+encrypt:
+  key: sunnly
+  salt: 73756e6e6c79
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.sunnly.wang:8848
+        file-extension: yml
+      discovery:
+        server-addr: nacos.sunnly.wang:8848
+  profiles:
+    active: sunnly-modules-sercet-generator
+server:
+  port: 9001

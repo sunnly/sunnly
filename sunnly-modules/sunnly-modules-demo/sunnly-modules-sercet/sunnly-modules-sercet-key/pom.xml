@@ -3,34 +3,35 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>sunnly-modules</artifactId>
         <groupId>wang.sunnly</groupId>
+        <artifactId>sunnly-modules-sercet</artifactId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>wang.sunnly</groupId>
-    <artifactId>sunnly-modules-demo</artifactId>
+    <artifactId>sunnly-modules-sercet-key</artifactId>
     <version>1.0.0</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>测试模块</description>
-    <modules>
-        <module>sunnly-modules-scheduled</module>
-        <module>sunnly-modules-fileupload</module>
-        <module>sunnly-modules-logger</module>
-        <module>sunnly-modules-gateway</module>
-        <module>sunnly-modules-nacos-support</module>
-        <module>sunnly-modules-asyncfeign</module>
-        <module>sunnly-modules-sercet</module>
-    </modules>
+    <description>sercet key配置方式加密</description>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>3.2.8.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>wang.sunnly</groupId>
+            <artifactId>macro-common-web</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--Nacos-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -56,17 +57,5 @@
             <version>2.1.2.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>wang.sunnly</groupId>
-            <artifactId>macro-common-core</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>wang.sunnly</groupId>
-            <artifactId>macro-common-web</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
-
 </project>

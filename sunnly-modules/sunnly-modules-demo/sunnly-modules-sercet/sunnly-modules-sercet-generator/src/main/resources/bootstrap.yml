@@ -1,0 +1,27 @@
+
+encrypt:
+  key: sunnly
+  salt: 73756e6e6c79
+
+#  keytool -genkeypair -alias sunnlykey -keyalg RSA -dname "CN=Web Server,OU=Unit,O=Organization,L=City,S=State,C=US" -keypass 123456 -keystore server.jks -storepass sunnly  -validity 3650
+#  key-store:
+##    -keystore server.jks
+#    location: server.jks
+##    -storepass sunnly
+#    password: sunnly
+##    -alias sunnlykey
+#    alias: sunnlykey
+##    -keypass 123456
+#    secret: 123456
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.sunnly.wang:8848
+        file-extension: yml
+      discovery:
+        server-addr: nacos.sunnly.wang:8848
+  profiles:
+    active: sunnly-modules-sercet-generator
+server:
+  port: 9000
