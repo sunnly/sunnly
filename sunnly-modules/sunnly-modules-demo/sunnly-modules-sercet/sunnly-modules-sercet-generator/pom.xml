@@ -5,12 +5,12 @@
     <parent>
         <groupId>wang.sunnly</groupId>
         <artifactId>sunnly-modules-sercet</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>wang.sunnly</groupId>
     <artifactId>sunnly-modules-sercet-generator</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>配置文件加密，通过本项目生产密钥，其他项目进行解密</description>

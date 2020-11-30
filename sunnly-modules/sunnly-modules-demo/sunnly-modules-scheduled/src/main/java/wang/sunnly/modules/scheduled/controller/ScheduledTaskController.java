@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wang.sunnly.common.core.exception.sub.ArgumentException;
-import wang.sunnly.common.core.exception.sup.BaseMacroException;
 import wang.sunnly.common.web.exception.enums.ArgumentResponseEnum;
 import wang.sunnly.common.web.exception.enums.CommonResponseEnum;
 import wang.sunnly.common.web.exception.handler.UnifiedExceptionHandler;

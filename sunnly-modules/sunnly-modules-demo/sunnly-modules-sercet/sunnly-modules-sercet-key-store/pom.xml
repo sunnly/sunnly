@@ -5,12 +5,12 @@
     <parent>
         <groupId>wang.sunnly</groupId>
         <artifactId>sunnly-modules-sercet</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>wang.sunnly</groupId>
     <artifactId>sunnly-modules-sercet-key-store</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>sercet key-store配置方式加密</description>

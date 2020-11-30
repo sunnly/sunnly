@@ -16,7 +16,7 @@ public class CosineSimilarAlgorithm {
         if (doc1 != null && doc1.trim().length() > 0 && doc2 != null
                 && doc2.trim().length() > 0) {
 
-            Map<Integer, int[]> AlgorithmMap = new HashMap<Integer, int[]>();
+            Map<Integer, int[]> AlgorithmMap = new HashMap<Integer, int[]>(16);
 
             //将两个字符串中的中文字符以及出现的总数封装到，AlgorithmMap中
             for (int i = 0; i < doc1.length(); i++) {
@@ -93,8 +93,10 @@ public class CosineSimilarAlgorithm {
                 // 正常情况下buffer应该是两个字节，否则说明ch不属于GB2312编码，故返回'?'，此时说明不认识该字符
                 return -1;
             }
-            int b0 = (buffer[0] & 0x0FF) - 161; // 编码从A1开始，因此减去0xA1=161
-            int b1 = (buffer[1] & 0x0FF) - 161; // 第一个字符和最后一个字符没有汉字，因此每个区只收16*6-2=94个汉字
+            // 编码从A1开始，因此减去0xA1=161
+            int b0 = (buffer[0] & 0x0FF) - 161;
+            // 第一个字符和最后一个字符没有汉字，因此每个区只收16*6-2=94个汉字
+            int b1 = (buffer[1] & 0x0FF) - 161;
             return (short) (b0 * 94 + b1);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -105,6 +107,6 @@ public class CosineSimilarAlgorithm {
     public static void main(String[] args) {
 
         System.out.println(CosineSimilarAlgorithm.getSimilarity("你是谁，大家好", "大家好，我是谁"));
-        System.out.println(CosineSimilarAlgorithm.getSimilarity("你是谁，大家好", "大家好，你是谁"));
+
     }
 }
