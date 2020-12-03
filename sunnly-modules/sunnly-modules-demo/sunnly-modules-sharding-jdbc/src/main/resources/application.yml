@@ -1,0 +1,55 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: source-0,source-1
+      source-0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://mysql.sunnly.wang:3307/macro_source_0?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: sunnly
+        # 数据源ds1
+      source-1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://mysql.sunnly.wang:3307/macro_source_1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: sunnly
+      config:
+        sharding:
+          props:
+            sql.show: true
+          tables:
+            t_user_0: #t_user表
+              key-generator-column-name: id  #主键
+              actual-data-nodes: source-$->{0..1}.t_user_$->{0..2}   #数据节点,均匀分布
+              database-strategy: #分库策略
+                inline: #行表达式
+                  sharding-column: id        #列名称，多个列以逗号分隔
+                  algorithm-expression: source-$->{id % 2}  #按模运算分配
+              table-strategy: #分表策略
+                inline: #行表达式
+                  sharding-column: id
+                  algorithm-expression: t_user_$->{id % 3}
+            t_user_1: #t_user表
+              key-generator-column-name: id  #主键
+              actual-data-nodes: source-$->{0..1}.t_user_$->{0..2}   #数据节点,均匀分布
+              database-strategy: #分库策略
+                inline: #行表达式
+                  sharding-column: id        #列名称，多个列以逗号分隔
+                  algorithm-expression: source-$->{id % 2}  #按模运算分配
+              table-strategy: #分表策略
+                inline: #行表达式
+                  sharding-column: id
+                  algorithm-expression: t_user_$->{id % 3}
+            t_user_2: #t_user表
+              key-generator-column-name: id  #主键
+              actual-data-nodes: source-$->{0..1}.t_user_$->{0..2}   #数据节点,均匀分布
+              database-strategy: #分库策略
+                inline: #行表达式
+                  sharding-column: id        #列名称，多个列以逗号分隔
+                  algorithm-expression: source-$->{id % 2}  #按模运算分配
+              table-strategy: #分表策略
+                inline: #行表达式
+                  sharding-column: id
+                  algorithm-expression: t_user_$->{id % 3}

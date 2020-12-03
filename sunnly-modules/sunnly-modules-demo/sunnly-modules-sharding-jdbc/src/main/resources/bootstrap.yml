@@ -1,0 +1,17 @@
+# 下载jce包并将jar包拷贝到%JAVA_HOME%/jre/lib/security/下
+# https://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip?AuthParam=1606701224_8faa195277edefa90984256820a31c4a
+encrypt:
+  key: sunnly
+  salt: 73756e6e6c79
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.sunnly.wang:8848
+        file-extension: yml
+      discovery:
+        server-addr: nacos.sunnly.wang:8848
+  profiles:
+    active: sunnly-modules-sercet-generator
+server:
+  port: 9000
