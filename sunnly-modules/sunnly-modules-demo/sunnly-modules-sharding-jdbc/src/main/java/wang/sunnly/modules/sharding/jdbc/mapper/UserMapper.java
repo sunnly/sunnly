@@ -1,7 +1,7 @@
 package wang.sunnly.modules.sharding.jdbc.mapper;
 
 import wang.sunnly.modules.sharding.jdbc.entity.User;
-import wang.sunnly.tk.mybatis.mapper.MacroMapper;
+import wang.sunnly.tk.mybatis.mapper.BaseMapper;
 
 /**
  * UserMapper
@@ -10,6 +10,8 @@ import wang.sunnly.tk.mybatis.mapper.MacroMapper;
  * @author Sunnly
  * @since 2020/12/3
  */
-public interface UserMapper extends MacroMapper<User>{
+public interface UserMapper extends BaseMapper<User> {
 
+//    @Select("select * from t_user where id=${id}")
+//    public User selectById(@Param("id") Integer id);
 }

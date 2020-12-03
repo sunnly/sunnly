@@ -35,6 +35,31 @@
     </dependencies>
     <build>
         <finalName>sunnly-modules-sercet-generator</finalName>
+        <!--<resources>
+            <resource>
+                &lt;!&ndash;指定mapping下的所有xml文件打包在jar中&ndash;&gt;
+                <targetPath>${project.build.directory}/classes</targetPath>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>mapping/*.xml</include>
+                </includes>
+            </resource>
+
+            <resource>
+                &lt;!&ndash;resources下一级的所有.xml .properties文件复制到config目录下&ndash;&gt;
+                <targetPath>${project.build.directory}/config</targetPath>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**.xml</include>
+                    <include>**.properties</include>
+                    <include>**.yml</include>
+                    <include>**.txt</include>
+                    <include>**.jks</include>
+                </includes>
+            </resource>
+        </resources>-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -51,6 +76,51 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <!--maven-dependency插件，将项目所有依赖包放到lib目录下-->
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <type>jar</type>
+                            <includeTypes>jar</includeTypes>
+                            <outputDirectory>
+                                ${project.build.directory}/lib
+                            </outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <classesDirectory>target/classes/</classesDirectory>
+                    <archive>
+                        &lt;!&ndash;生成的jar中，不要包含pom.xml和pom.properties这两个文件&ndash;&gt;
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifest>
+                            <mainClass>wang.sunnly.modules.encrypt.SercetGeneratorApplication</mainClass>
+                            &lt;!&ndash; 打包时 MANIFEST.MF文件不记录的时间戳版本 &ndash;&gt;
+                            <useUniqueVersions>false</useUniqueVersions>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                        <manifestEntries>
+                            &lt;!&ndash;jar中的MANIFEST.MF文件ClassPath需要添加config目录才能读取到配置文件&ndash;&gt;
+                            <Class-Path>config/ .</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>-->
+
         </plugins>
     </build>
 </project>

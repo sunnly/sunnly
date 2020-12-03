@@ -2,10 +2,7 @@ package wang.sunnly.modules.sharding.jdbc.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * User
@@ -14,14 +11,14 @@ import javax.persistence.Table;
  * @author Sunnly
  * @since 2020/12/3
  */
-@Table(name = "t_user_")
+@Table(name = "t_user")
 @Data
-public class User {
+public class User<K extends Integer> {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "JDBC")
-    private Integer id;
+    private K id;
 
     @Column(name = "name")
     private String name;

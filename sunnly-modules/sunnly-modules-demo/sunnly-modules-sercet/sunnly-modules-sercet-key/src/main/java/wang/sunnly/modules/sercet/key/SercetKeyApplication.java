@@ -15,6 +15,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class SercetKeyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SercetKeyApplication.class,args);
+        SpringApplication.run(SercetKeyApplication.class, args);
     }
 }

@@ -14,4 +14,4 @@ spring:
   profiles:
     active: sunnly-modules-sercet-generator
 server:
-  port: 9000
+  port: 10030

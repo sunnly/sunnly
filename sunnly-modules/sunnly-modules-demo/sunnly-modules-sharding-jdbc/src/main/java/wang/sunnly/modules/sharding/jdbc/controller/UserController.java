@@ -15,6 +15,6 @@ import wang.sunnly.mysql.controller.BaseController;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController extends BaseController<UserService, User> {
+public class UserController extends BaseController<UserService, User<Integer>> {
 
 }

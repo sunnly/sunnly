@@ -1,19 +1,20 @@
 # 下载jce包并将jar包拷贝到%JAVA_HOME%/jre/lib/security/下
 # https://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip?AuthParam=1606701224_8faa195277edefa90984256820a31c4a
-encrypt:
-  key: sunnly
-  salt: 73756e6e6c79
+#encrypt:
+#  key: sunnly
+#  salt: 73756e6e6c79
 
 #  keytool -genkeypair -alias sunnlykey -keyalg RSA -dname "CN=Web Server,OU=Unit,O=Organization,L=City,S=State,C=US" -keypass 123456 -keystore server.jks -storepass sunnly  -validity 3650
-#  key-store:
-##    -keystore server.jks
-#    location: server.jks
-##    -storepass sunnly
-#    password: sunnly
-##    -alias sunnlykey
-#    alias: sunnlykey
-##    -keypass 123456
-#    secret: 123456
+encrypt:
+  key-store:
+#    -keystore server.jks
+    location: server.jks
+#    -storepass sunnly
+    password: sunnly
+#    -alias sunnlykey
+    alias: sunnlykey
+#    -keypass 123456
+    secret: 123456
 spring:
   cloud:
     nacos:

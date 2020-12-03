@@ -23,6 +23,7 @@
         <module>sunnly-modules-asyncfeign</module>
         <module>sunnly-modules-sercet</module>
         <module>sunnly-modules-similar</module>
+        <module>sunnly-modules-sharding-jdbc</module>
     </modules>
 
     <dependencies>

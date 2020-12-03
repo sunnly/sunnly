@@ -1,5 +1,6 @@
 package wang.sunnly.modules.sharding.jdbc.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wang.sunnly.modules.sharding.jdbc.entity.User;
 import wang.sunnly.modules.sharding.jdbc.mapper.UserMapper;
@@ -17,4 +18,14 @@ import wang.sunnly.mysql.service.impl.BaseServiceImpl;
 public class UserServiceImpl
         extends BaseServiceImpl<UserMapper, User>
         implements UserService, BaseService<UserMapper,User> {
+
+//    @Autowired
+//    UserMapper userMapper;
+//
+//    @Override
+//    public User selectById(Integer id){
+////        return userMapper.selectById(Integer.parseInt(id+""));
+//        return userMapper.selectByPrimaryKey(id);
+//    }
+
 }
