@@ -13,12 +13,12 @@ import javax.persistence.*;
  */
 @Table(name = "t_user")
 @Data
-public class User<K extends Integer> {
+public class User {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "JDBC")
-    private K id;
+    private Long id;
 
     @Column(name = "name")
     private String name;

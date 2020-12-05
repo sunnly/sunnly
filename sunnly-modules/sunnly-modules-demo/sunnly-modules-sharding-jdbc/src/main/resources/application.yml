@@ -15,17 +15,21 @@ spring:
         username: root
         password: sunnly
     sharding:
+      binding-tables: t_user
       default-database-strategy:
         inline:
           sharding-column: id
           algorithm-expression: ds$->{id % 2}
       tables:
         t_user:
+          key-generator:
+            type: SNOWFLAKE
+            column: id
           key-generator-column-name: id
-          actual-data-nodes: ds$->{0..1}.user_$->{0..1}
+          actual-data-nodes: ds$->{0..1}.user_$->{0..2}
           table-strategy:
             inline:
               sharding-column: id
-              algorithm-expression: user_$->{id % 2}
+              algorithm-expression: user_$->{id % 3}
     props:
       sql.show: true
