@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite::resource:test.db
+#    url: jdbc:sqlite:F:/work/ideaspace/macro/sunnly/sunnly-modules/sunnly-modules-demo/sunnly-modules-sqlite/src/main/resources/test.db
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: wang.sunnly.modules.sqlite.entity

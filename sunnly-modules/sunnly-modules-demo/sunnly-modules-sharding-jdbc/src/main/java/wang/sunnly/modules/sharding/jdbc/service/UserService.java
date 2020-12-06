@@ -12,4 +12,6 @@ import wang.sunnly.mysql.service.BaseService;
  * @since 2020/12/3
  */
 public interface UserService extends BaseService<UserMapper, User> {
+
+    int insertUser(User user);
 }

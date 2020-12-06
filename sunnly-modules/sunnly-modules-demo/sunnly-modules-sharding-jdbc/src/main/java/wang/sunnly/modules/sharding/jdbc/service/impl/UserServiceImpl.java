@@ -19,13 +19,15 @@ public class UserServiceImpl
         extends BaseServiceImpl<UserMapper, User>
         implements UserService, BaseService<UserMapper,User> {
 
-//    @Autowired
-//    UserMapper userMapper;
-//
 //    @Override
 //    public User selectById(Integer id){
 ////        return userMapper.selectById(Integer.parseInt(id+""));
-//        return userMapper.selectByPrimaryKey(id);
+//        return mapper.selectByPrimaryKey(id);
 //    }
+
+    @Override
+    public int insertUser(User user){
+        return mapper.insertUser(user);
+    }
 
 }

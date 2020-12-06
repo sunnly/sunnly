@@ -25,6 +25,9 @@ spring:
           key-generator:
             type: SNOWFLAKE
             column: id
+            props:
+              worker:
+                id: 123
           key-generator-column-name: id
           actual-data-nodes: ds$->{0..1}.user_$->{0..2}
           table-strategy:

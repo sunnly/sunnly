@@ -24,12 +24,21 @@ import java.util.Random;
 @RequestMapping("/user")
 public class UserController extends BaseController<UserService, User> {
 
-    @PostMapping("aa")
+    @PostMapping("add")
     public ObjectResponse<User> add1(@RequestBody User user){
         SnowFlake snowFlake = new SnowFlake(5, 6);
         user.setId(snowFlake.nextId(false));
-
         return new ObjectResponse<User>(service.insert(user) == 1 ? user : null);
+    }
+
+    @PostMapping("add2")
+    public ObjectResponse<User> add2(@RequestBody User user){
+        try{
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ObjectResponse<User>(service.insertUser(user) == 1 ? user : null);
     }
 
     @GetMapping("batch")
