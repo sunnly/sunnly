@@ -4,10 +4,10 @@ spring:
       config:
         server-addr: nacos.sunnly.wang:8848
         group: SUNNLY-MICROSERVICES
-        shared-configs:
+        ext-config[0]:
           data-id: ${spring.application.name}-${spring.profiles.active}.yml
           group: ${spring.cloud.nacos.config.group}
-        extension-configs:
+        ext-config[1]:
           data-id: ${spring.application.name}-mysql-${spring.profiles.active}.yml
           group: ${spring.cloud.nacos.config.group}
           refresh: true
@@ -16,11 +16,11 @@ spring:
       discovery:
         server-addr: nacos.sunnly.wang:8848
   application:
-    name: sunnly-modules-async-client
+    name: sunnly-modules-fileclient
   profiles:
     active: dev
 server:
-  port: 10022
+  port: 10011
 
 #macro:
 #  fileupload:

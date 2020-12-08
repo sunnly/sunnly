@@ -18,13 +18,14 @@
         <module>sunnly-modules-scheduled</module>
         <module>sunnly-modules-fileupload</module>
         <module>sunnly-modules-logger</module>
-        <module>sunnly-modules-gateway</module>
         <module>sunnly-modules-nacos-support</module>
         <module>sunnly-modules-asyncfeign</module>
         <module>sunnly-modules-sercet</module>
         <module>sunnly-modules-similar</module>
         <module>sunnly-modules-sharding-jdbc</module>
         <module>sunnly-modules-sqlite</module>
+        <module>sunnly-modules-auth</module>
+        <module>sunnly-modules-admin</module>
     </modules>
 
     <dependencies>
