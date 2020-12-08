@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
-import wang.sunnly.modules.auth.entity.User;
-
-import java.util.Map;
+import wang.sunnly.modules.api.entity.AuthenticationRequest;
+import wang.sunnly.modules.auth.feign.UserFeign;
 
 /**
  * UserController
@@ -20,8 +19,11 @@ import java.util.Map;
 @RequestMapping("/jwt")
 public class AuthController {
 
+    private UserFeign userFeign;
+
     @PostMapping("/token")
-    public ObjectResponse<String> login(@RequestBody User user){
+    public ObjectResponse<String> createToken(@RequestBody AuthenticationRequest authenticationRequest) {
+
         return new ObjectResponse<String>().setData("success");
     }
 }

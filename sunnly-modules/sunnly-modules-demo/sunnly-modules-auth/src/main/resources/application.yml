@@ -1,2 +1,6 @@
 server:
   port: 20010
+macro:
+  feign:
+    client:
+      admin: macro-admin

@@ -16,7 +16,11 @@
     <description>资源服务</description>
 
     <dependencies>
-
+        <dependency>
+            <groupId>wang.sunnly</groupId>
+            <artifactId>sunnly-modules-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
