@@ -1,6 +1,8 @@
 package wang.sunnly.modules.api.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * UserInfo
@@ -11,6 +13,8 @@ import lombok.Data;
  * @since 2020/12/8
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserInfo {
 
     private String userId;
