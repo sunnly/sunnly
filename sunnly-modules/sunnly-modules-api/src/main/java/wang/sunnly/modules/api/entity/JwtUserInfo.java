@@ -11,24 +11,16 @@ import wang.sunnly.common.core.security.jwt.entity.IJwtInfo;
  * @since 2020/12/8 0008
  */
 @Data
-
 public class JwtUserInfo extends UserInfo implements IJwtInfo {
-    private String userId;
-    private String username;
-    private String name;
-    private double height;
-    private String dept;
-    private int age;
-    private String role;
 
     @Override
     public String getUniquename() {
-        return username;
+        return this.getUsername();
     }
 
     @Override
     public String getId() {
-        return userId;
+        return this.getUserId();
     }
 
 }

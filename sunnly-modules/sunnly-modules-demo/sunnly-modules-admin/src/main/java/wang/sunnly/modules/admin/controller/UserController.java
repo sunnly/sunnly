@@ -5,9 +5,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
+import wang.sunnly.common.web.msg.result.PageResponse;
+import wang.sunnly.modules.admin.entity.User;
+import wang.sunnly.modules.admin.service.UserService;
 import wang.sunnly.modules.api.entity.AuthenticationRequest;
 import wang.sunnly.modules.api.entity.FrontUserInfo;
 import wang.sunnly.modules.api.entity.UserInfo;
+import wang.sunnly.mysql.controller.BaseController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +26,12 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("user")
-public class UserController {
+public class UserController extends BaseController<UserService, User> {
 
     @PostMapping("validate")
     public UserInfo validate(AuthenticationRequest authInfo){
         String username = authInfo.getUsername();
         //用户查询验证，返回用户信息
-
         UserInfo userInfo = new UserInfo();
 
         return null;

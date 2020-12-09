@@ -14,16 +14,49 @@ import java.util.List;
 @Data
 public class FrontUserInfo {
 
+    /**
+     * 用户ID
+     */
     private String id;
+    /**
+     * 登录名称
+     */
     private String username;
+    /**
+     * 姓名
+     */
     private String name;
+    /**
+     * 手机
+     */
     private String phone;
+    /**
+     * 性别
+     */
     private int sex;
+    /**
+     * 地址
+     */
     private String address;
+    /**
+     * 登录IP
+     */
     private String loginIp;
+    /**
+     * 登录时间
+     */
     private String loginTime;
+    /**
+     * 所属机构，从顶级机构到所属机构
+     */
     private List<String> orgNames;
+    /**
+     * 所属部门
+     */
     private String deptName;
+    /**
+     * 角色列表
+     */
     private List<String> roleNames;
 
     /**
