@@ -20,7 +20,7 @@ public class JwtUserInfo extends UserInfo implements IJwtInfo {
 
     @Override
     public String getId() {
-        return this.getUserId();
+        return this.getUserId()+"";
     }
 
 }

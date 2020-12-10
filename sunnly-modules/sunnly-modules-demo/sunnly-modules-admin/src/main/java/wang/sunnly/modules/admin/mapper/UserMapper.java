@@ -1,13 +1,10 @@
 package wang.sunnly.modules.admin.mapper;
 
-import wang.sunnly.modules.admin.entity.User;
+import org.apache.ibatis.annotations.Param;
+import wang.sunnly.modules.admin.domain.User;
 import wang.sunnly.tk.mybatis.mapper.BaseMapper;
 
-/**
- * UserMapper
- *
- * @author Sunnly
- * @since 2020/12/9 0009
- */
 public interface UserMapper extends BaseMapper<User> {
+
+    User getUserByUsername(@Param("username") String username);
 }

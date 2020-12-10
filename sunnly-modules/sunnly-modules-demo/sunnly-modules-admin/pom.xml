@@ -16,6 +16,7 @@
     <description>资源服务</description>
 
     <dependencies>
+
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>sharding-jdbc-spring-boot-starter</artifactId>

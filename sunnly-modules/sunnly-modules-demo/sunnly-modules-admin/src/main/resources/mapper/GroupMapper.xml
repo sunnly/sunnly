@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.GroupMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.Group">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    <!--@Table base_group-->
+    <id column="group_id" jdbcType="BIGINT" property="groupId" />
+    <result column="group_code" jdbcType="VARCHAR" property="groupCode" />
+    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
+    <result column="group_fullname" jdbcType="VARCHAR" property="groupFullname" />
+    <result column="group_parent_id" jdbcType="BIGINT" property="groupParentId" />
+    <result column="group_parent_name" jdbcType="VARCHAR" property="groupParentName" />
+    <result column="group_ids" jdbcType="VARCHAR" property="groupIds" />
+    <result column="group_auth_ids" jdbcType="VARCHAR" property="groupAuthIds" />
+    <result column="group_manager_id" jdbcType="BIGINT" property="groupManagerId" />
+    <result column="group_manager_name" jdbcType="VARCHAR" property="groupManagerName" />
+    <result column="group_phone" jdbcType="CHAR" property="groupPhone" />
+    <result column="group_mobile" jdbcType="CHAR" property="groupMobile" />
+    <result column="group_desc" jdbcType="VARCHAR" property="groupDesc" />
+    <result column="group_method" jdbcType="TINYINT" property="groupMethod" />
+    <result column="group_status" jdbcType="CHAR" property="groupStatus" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="country_name" jdbcType="VARCHAR" property="countryName" />
+    <result column="province_code" jdbcType="VARCHAR" property="provinceCode" />
+    <result column="province_name" jdbcType="VARCHAR" property="provinceName" />
+    <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="area_name" jdbcType="VARCHAR" property="areaName" />
+    <result column="street_code" jdbcType="VARCHAR" property="streetCode" />
+    <result column="street_name" jdbcType="VARCHAR" property="streetName" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="type" jdbcType="BOOLEAN" property="type" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="create_user_ip" jdbcType="VARCHAR" property="createUserIp" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="update_user_ip" jdbcType="VARCHAR" property="updateUserIp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    group_id, group_code, group_name, group_fullname, group_parent_id, group_parent_name, 
+    group_ids, group_auth_ids, group_manager_id, group_manager_name, group_phone, group_mobile, 
+    group_desc, group_method, group_status, country_code, country_name, province_code, 
+    province_name, city_code, city_name, area_code, area_name, street_code, street_name, 
+    addr, `type`, create_time, create_user_id, create_user_name, create_user_ip, update_time, 
+    update_user_id, update_user_name, update_user_ip
+  </sql>
+</mapper>

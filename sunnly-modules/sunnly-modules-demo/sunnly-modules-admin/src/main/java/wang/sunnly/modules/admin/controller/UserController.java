@@ -1,12 +1,8 @@
 package wang.sunnly.modules.admin.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
-import wang.sunnly.common.web.msg.result.PageResponse;
-import wang.sunnly.modules.admin.entity.User;
+import wang.sunnly.modules.admin.domain.User;
 import wang.sunnly.modules.admin.service.UserService;
 import wang.sunnly.modules.api.entity.AuthenticationRequest;
 import wang.sunnly.modules.api.entity.FrontUserInfo;
@@ -29,19 +25,16 @@ import java.util.Map;
 public class UserController extends BaseController<UserService, User> {
 
     @PostMapping("validate")
-    public UserInfo validate(AuthenticationRequest authInfo){
-        String username = authInfo.getUsername();
+    public ObjectResponse<UserInfo> validate(@RequestBody AuthenticationRequest authInfo) {
         //用户查询验证，返回用户信息
-        UserInfo userInfo = new UserInfo();
-
-        return null;
+        return new ObjectResponse<>(service.validate(authInfo.getUsername(), authInfo.getPassword()));
     }
 
     @GetMapping("front/info")
-    public ObjectResponse<FrontUserInfo> getInfo(){
+    public ObjectResponse<FrontUserInfo> getInfo() {
 
         FrontUserInfo userInfo = new FrontUserInfo();
-        List<Map<String,Object>> list = new ArrayList<>();
+        List<Map<String, Object>> list = new ArrayList<>();
 
         return new ObjectResponse<FrontUserInfo>(userInfo);
     }
