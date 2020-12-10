@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.GroupUserMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.GroupUser">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    <!--@Table base_group_user-->
+    <id column="group_user_id" jdbcType="BIGINT" property="groupUserId" />
+    <result column="group_id" jdbcType="BIGINT" property="groupId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    group_user_id, group_id, user_id
+  </sql>
+</mapper>

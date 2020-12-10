@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.User">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    <!--@Table base_user-->
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="BOOLEAN" property="sex" />
+    <result column="birthday" jdbcType="CHAR" property="birthday" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="country_name" jdbcType="VARCHAR" property="countryName" />
+    <result column="province_code" jdbcType="VARCHAR" property="provinceCode" />
+    <result column="province_name" jdbcType="VARCHAR" property="provinceName" />
+    <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="area_name" jdbcType="VARCHAR" property="areaName" />
+    <result column="street_code" jdbcType="VARCHAR" property="streetCode" />
+    <result column="street_name" jdbcType="VARCHAR" property="streetName" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="type" jdbcType="BOOLEAN" property="type" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="create_user_ip" jdbcType="VARCHAR" property="createUserIp" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="update_user_ip" jdbcType="VARCHAR" property="updateUserIp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    user_id, username, `password`, `name`, sex, birthday, mobile, email, idcard, country_code, 
+    country_name, province_code, province_name, city_code, city_name, area_code, area_name, 
+    street_code, street_name, addr, `type`, channel, `status`, create_time, create_user_id, 
+    create_user_name, create_user_ip, update_time, update_user_id, update_user_name, 
+    update_user_ip
+  </sql>
+
+  <select id="getUserByUsername" resultMap="BaseResultMap" parameterType="string">
+    select * from base_user where username=#{username,jdbcType=VARCHAR}
+  </select>
+</mapper>

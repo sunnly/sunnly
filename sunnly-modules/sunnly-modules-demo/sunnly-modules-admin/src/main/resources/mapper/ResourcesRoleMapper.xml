@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.ResourcesRoleMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.ResourcesRole">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    <!--@Table base_resources_role-->
+    <id column="res_role_id" jdbcType="BIGINT" property="resRoleId" />
+    <result column="res_id" jdbcType="BIGINT" property="resId" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    res_role_id, res_id, role_id
+  </sql>
+</mapper>

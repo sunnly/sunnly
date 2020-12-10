@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.ResourcesMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.Resources">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    <!--@Table base_resources-->
+    <id column="res_id" jdbcType="BIGINT" property="resId" />
+    <result column="res_code" jdbcType="VARCHAR" property="resCode" />
+    <result column="res_name" jdbcType="VARCHAR" property="resName" />
+    <result column="res_title" jdbcType="VARCHAR" property="resTitle" />
+    <result column="res_icon" jdbcType="VARCHAR" property="resIcon" />
+    <result column="res_type" jdbcType="CHAR" property="resType" />
+    <result column="res_path" jdbcType="VARCHAR" property="resPath" />
+    <result column="res_method" jdbcType="VARCHAR" property="resMethod" />
+    <result column="res_view" jdbcType="VARCHAR" property="resView" />
+    <result column="res_parent_id" jdbcType="BIGINT" property="resParentId" />
+    <result column="res_ids" jdbcType="VARCHAR" property="resIds" />
+    <result column="res_binds" jdbcType="VARCHAR" property="resBinds" />
+    <result column="res_group" jdbcType="VARCHAR" property="resGroup" />
+    <result column="res_desc" jdbcType="VARCHAR" property="resDesc" />
+    <result column="res_order" jdbcType="INTEGER" property="resOrder" />
+    <result column="res_status" jdbcType="CHAR" property="resStatus" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="create_user_ip" jdbcType="VARCHAR" property="createUserIp" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="update_user_ip" jdbcType="VARCHAR" property="updateUserIp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    res_id, res_code, res_name, res_title, res_icon, res_type, res_path, res_method, 
+    res_view, res_parent_id, res_ids, res_binds, res_group, res_desc, res_order, res_status, 
+    create_time, create_user_id, create_user_name, create_user_ip, update_time, update_user_id, 
+    update_user_name, update_user_ip
+  </sql>
+</mapper>

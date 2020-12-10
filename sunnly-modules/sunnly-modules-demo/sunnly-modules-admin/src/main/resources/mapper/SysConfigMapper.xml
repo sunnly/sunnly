@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.SysConfigMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.SysConfig">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    <!--@Table base_sys_config-->
+    <id column="sc_id" jdbcType="BIGINT" property="scId" />
+    <result column="sc_account" jdbcType="CHAR" property="scAccount" />
+    <result column="sc_account_validate" jdbcType="CHAR" property="scAccountValidate" />
+    <result column="sc_account_social" jdbcType="VARCHAR" property="scAccountSocial" />
+    <result column="sc_ukey" jdbcType="CHAR" property="scUkey" />
+    <result column="sc_ukey_username" jdbcType="CHAR" property="scUkeyUsername" />
+    <result column="sc_ukey_password" jdbcType="CHAR" property="scUkeyPassword" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    sc_id, sc_account, sc_account_validate, sc_account_social, sc_ukey, sc_ukey_username, 
+    sc_ukey_password
+  </sql>
+</mapper>

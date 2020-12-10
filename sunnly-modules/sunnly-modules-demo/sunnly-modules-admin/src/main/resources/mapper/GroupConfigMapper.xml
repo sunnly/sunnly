@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.GroupConfigMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.GroupConfig">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    <!--@Table base_group_config-->
+    <id column="gc_id" jdbcType="BIGINT" property="gcId" />
+    <result column="group_id" jdbcType="BIGINT" property="groupId" />
+    <result column="gc_three_manager" jdbcType="CHAR" property="gcThreeManager" />
+    <result column="gc_session" jdbcType="INTEGER" property="gcSession" />
+    <result column="gc_token" jdbcType="INTEGER" property="gcToken" />
+    <result column="gc_ref_token" jdbcType="INTEGER" property="gcRefToken" />
+    <result column="gc_agent_group_ids" jdbcType="VARCHAR" property="gcAgentGroupIds" />
+    <result column="gc_agent_user_ids" jdbcType="VARCHAR" property="gcAgentUserIds" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Dec 10 21:36:07 CST 2020.-->
+    gc_id, group_id, gc_three_manager, gc_session, gc_token, gc_ref_token, gc_agent_group_ids, 
+    gc_agent_user_ids
+  </sql>
+</mapper>
