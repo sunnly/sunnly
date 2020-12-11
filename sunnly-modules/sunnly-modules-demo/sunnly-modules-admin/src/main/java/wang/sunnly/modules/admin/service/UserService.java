@@ -13,6 +13,8 @@ import wang.sunnly.mysql.service.BaseService;
  */
 public interface UserService extends BaseService<UserMapper, User> {
 
+    String getPassword(String username, String md5);
+
     UserInfo validate(String username, String password);
 }
 

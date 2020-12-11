@@ -1,10 +1,10 @@
 package wang.sunnly.modules.admin.controller;
 
+import com.alibaba.nacos.common.utils.Md5Utils;
 import org.springframework.web.bind.annotation.*;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.admin.domain.User;
 import wang.sunnly.modules.admin.service.UserService;
-import wang.sunnly.modules.api.entity.AuthenticationRequest;
 import wang.sunnly.modules.api.entity.FrontUserInfo;
 import wang.sunnly.modules.api.entity.UserInfo;
 import wang.sunnly.mysql.controller.BaseController;
@@ -24,10 +24,25 @@ import java.util.Map;
 @RequestMapping("user")
 public class UserController extends BaseController<UserService, User> {
 
+    @GetMapping("pwd/{username}/{password}")
+    public ObjectResponse<String> getPassword(
+            @PathVariable("username") String username,
+            @PathVariable("password") String password,
+            @RequestParam(value = "md5", defaultValue = "false") Boolean md5){
+
+        return new ObjectResponse<String>().setData(
+                service.getPassword(username,
+                        md5? Md5Utils.getMD5(password,"utf-8") : password));
+    }
+    @GetMapping("md5/{password}")
+    public ObjectResponse<String> getMd5(@PathVariable("password") String password ){
+        return new ObjectResponse<String>().setData(Md5Utils.getMD5(password,"utf-8"));
+    }
+
     @PostMapping("validate")
-    public ObjectResponse<UserInfo> validate(@RequestBody AuthenticationRequest authInfo) {
+    public ObjectResponse<UserInfo> validate(@RequestBody Map<String, String> authInfo) {
         //用户查询验证，返回用户信息
-        return new ObjectResponse<>(service.validate(authInfo.getUsername(), authInfo.getPassword()));
+        return new ObjectResponse<>(service.validate(authInfo.get("username"), authInfo.get("password")));
     }
 
     @GetMapping("front/info")

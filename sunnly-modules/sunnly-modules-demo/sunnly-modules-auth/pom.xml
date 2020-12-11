@@ -30,6 +30,11 @@
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-gson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>wang.sunnly</groupId>
+            <artifactId>macro-tools-mysql</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
