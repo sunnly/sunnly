@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.auth.mapper.ClientMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.auth.domain.Client">
+    <!--@mbg.generated generated on Fri Dec 11 20:45:06 CST 2020.-->
+    <!--@Table auth_client-->
+    <result column="client_id" jdbcType="BIGINT" property="clientId" />
+    <result column="client_code" jdbcType="VARCHAR" property="clientCode" />
+    <result column="client_secret" jdbcType="VARCHAR" property="clientSecret" />
+    <result column="client_name" jdbcType="VARCHAR" property="clientName" />
+    <result column="client_status" jdbcType="BOOLEAN" property="clientStatus" />
+    <result column="client_channel" jdbcType="VARCHAR" property="clientChannel" />
+    <result column="client_system" jdbcType="BOOLEAN" property="clientSystem" />
+    <result column="client_description" jdbcType="VARCHAR" property="clientDescription" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="create_user_ip" jdbcType="VARCHAR" property="createUserIp" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="update_user_ip" jdbcType="VARCHAR" property="updateUserIp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Fri Dec 11 20:45:06 CST 2020.-->
+    client_id, client_code, client_secret, client_name, client_status, client_channel, 
+    client_system, client_description, create_time, create_user_id, create_user_name, 
+    create_user_ip, update_time, update_user_id, update_user_name, update_user_ip
+  </sql>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.auth.mapper.ClientServerMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.auth.domain.ClientServer">
+    <!--@mbg.generated generated on Fri Dec 11 20:45:06 CST 2020.-->
+    <!--@Table auth_client_server-->
+    <result column="cs_id" jdbcType="BIGINT" property="csId" />
+    <result column="service_id" jdbcType="BIGINT" property="serviceId" />
+    <result column="client_id" jdbcType="BIGINT" property="clientId" />
+    <result column="cs_description" jdbcType="VARCHAR" property="csDescription" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="create_user_ip" jdbcType="VARCHAR" property="createUserIp" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="update_user_ip" jdbcType="VARCHAR" property="updateUserIp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Fri Dec 11 20:45:06 CST 2020.-->
+    cs_id, service_id, client_id, cs_description, create_time, create_user_id, create_user_name, 
+    create_user_ip, update_time, update_user_id, update_user_name, update_user_ip
+  </sql>
+</mapper>
