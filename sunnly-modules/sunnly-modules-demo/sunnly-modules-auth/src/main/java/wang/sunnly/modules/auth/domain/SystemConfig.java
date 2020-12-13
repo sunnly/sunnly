@@ -1,17 +1,23 @@
-package wang.sunnly.modules.admin.domain;
+package wang.sunnly.modules.auth.domain;
 
 import javax.persistence.*;
 import lombok.Data;
 
 @Data
-@Table(name = "base_sys_config")
-public class SysConfig {
+@Table(name = "auth_system_config")
+public class SystemConfig {
     /**
      * 配置ID
      */
     @Id
     @Column(name = "sc_id")
     private Long scId;
+
+    /**
+     * 系统渠道
+     */
+    @Column(name = "sc_system_channel")
+    private String scSystemChannel;
 
     /**
      * 是否开启用户名密码登录(0:否,1:是)

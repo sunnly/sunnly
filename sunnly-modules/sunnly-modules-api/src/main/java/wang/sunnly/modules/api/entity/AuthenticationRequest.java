@@ -15,6 +15,10 @@ import java.io.Serializable;
 public class AuthenticationRequest implements Serializable {
 
     /**
+     * 系统渠道
+     */
+    private String scSystemChannel;
+    /**
      * 登录用户名
      */
     private String username;

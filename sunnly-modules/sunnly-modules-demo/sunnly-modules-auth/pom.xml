@@ -16,6 +16,7 @@
     <description>鉴权服务</description>
 
     <dependencies>
+
         <dependency>
             <groupId>wang.sunnly</groupId>
             <artifactId>sunnly-modules-api</artifactId>
@@ -35,6 +36,21 @@
             <artifactId>macro-tools-mysql</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <!--Redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>-->
+
     </dependencies>
 
     <build>

@@ -34,7 +34,7 @@ public class UserServiceImpl
     public UserInfo validate(String username, String password) {
         UserAssertEnum.USERNAME_NOT_NULL.assertNotNull(username);
         User resUser = mapper.getUserByUsername(username);
-
+        UserAssertEnum.USERNAME_PASSWORD_NOT_MATCH.assertNotNull(resUser);
         UserAssertEnum.USERNAME_PASSWORD_NOT_MATCH
                 .assertIsTrue(encoder
                         .matches(username+":"+password, resUser.getPassword()));

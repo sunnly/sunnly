@@ -17,6 +17,6 @@ import java.util.Map;
 @FeignClient("${macro.feign.client.admin}")
 public interface UserFeign {
 
-    @PostMapping("validate")
+    @PostMapping("user/validate")
     public ObjectResponse<UserInfo> validate(@RequestBody Map<String, String> authInfo);
 }
