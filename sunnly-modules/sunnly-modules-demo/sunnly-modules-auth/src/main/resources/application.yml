@@ -26,3 +26,12 @@ macro:
   feign:
     client:
       admin: macro-admin
+
+  validate:
+    code:
+      image:
+        font-size: 32
+
+logging:
+  level:
+    wang.sunnly.validate.code: debug
