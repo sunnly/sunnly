@@ -14,8 +14,17 @@ import wang.sunnly.common.core.exception.assertion.MacroExceptionAssert;
 @Getter
 public enum UserAssertEnum implements MacroExceptionAssert {
 
+    /**
+     * 用户名不能为空
+     */
     USERNAME_NOT_NULL(60000, "用户名不能为空"),
+    /**
+     * 用户名或密码错误
+     */
     USERNAME_PASSWORD_NOT_MATCH(60001, "用户名或密码错误"),
+    /**
+     * token不能为空
+     */
     USER_TOKEN_NOT_EMPTY(60002, "token不能为空")
     ;
 

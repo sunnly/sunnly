@@ -14,6 +14,9 @@ import wang.sunnly.common.core.exception.assertion.MacroExceptionAssert;
 @Getter
 public enum GroupAssertEnum implements MacroExceptionAssert {
 
+    /**
+     * 父分组不存在
+     */
     PARENT_GROUP_NOT_EXIST(60100, "父分组不存在")
     ;
 

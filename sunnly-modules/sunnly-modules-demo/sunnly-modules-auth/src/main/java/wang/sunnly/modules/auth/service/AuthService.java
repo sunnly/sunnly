@@ -8,11 +8,25 @@ package wang.sunnly.modules.auth.service;
  */
 public interface AuthService {
 
-    long lockedTime(String username);
+    /**
+     * 获取锁定时长
+     * @param id id
+     * @return 返回锁定时长
+     */
+    long lockedTime(String id);
 
-    void lockedUser(String username);
+    /**
+     * 锁定用户
+     * @param id ID
+     */
+    void lockedUser(String id);
 
-    void setValidateCode(String username, String code);
+    /**
+     * 设置validatecode
+     * @param id ID
+     * @param code 验证码
+     */
+    void setValidateCode(String id, String code);
 
     String getValidateCode(String username);
 
