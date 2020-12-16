@@ -32,6 +32,10 @@ macro:
       image:
         font-size: 32
 
+  mail:
+    from:
+      accout: 389943100@qq.com
+      password: cwfrvlqkvcgvcabi
 logging:
   level:
     wang.sunnly.validate.code: debug
