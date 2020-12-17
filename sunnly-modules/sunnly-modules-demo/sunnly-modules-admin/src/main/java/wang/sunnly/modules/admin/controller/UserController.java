@@ -9,6 +9,7 @@ import wang.sunnly.modules.api.entity.FrontUserInfo;
 import wang.sunnly.modules.api.entity.UserInfo;
 import wang.sunnly.mysql.controller.BaseController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -40,9 +41,9 @@ public class UserController extends BaseController<UserService, User> {
     }
 
     @PostMapping("validate")
-    public ObjectResponse<UserInfo> validate(@RequestBody Map<String, String> authInfo) {
+    public ObjectResponse<UserInfo> validate(@RequestBody Map<String, String> authInfo, HttpServletRequest request) {
         //用户查询验证，返回用户信息
-        return new ObjectResponse<>(service.validate(authInfo.get("username"), authInfo.get("password")));
+        return new ObjectResponse<>(service.validate(request,authInfo.get("username"), authInfo.get("password")));
     }
 
     @GetMapping("front/info")

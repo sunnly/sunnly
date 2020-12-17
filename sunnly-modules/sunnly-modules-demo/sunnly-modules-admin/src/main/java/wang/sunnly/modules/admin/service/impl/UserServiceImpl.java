@@ -4,6 +4,7 @@ import com.alibaba.nacos.common.utils.Md5Utils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import wang.sunnly.common.web.utils.IpUtils;
 import wang.sunnly.modules.admin.domain.User;
 import wang.sunnly.modules.admin.exception.UserAssertEnum;
 import wang.sunnly.modules.admin.mapper.UserMapper;
@@ -11,6 +12,8 @@ import wang.sunnly.modules.admin.service.UserService;
 import wang.sunnly.modules.api.entity.UserInfo;
 import wang.sunnly.mysql.service.BaseService;
 import wang.sunnly.mysql.service.impl.BaseServiceImpl;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * UserServiceImpl
@@ -31,7 +34,7 @@ public class UserServiceImpl
     }
 
     @Override
-    public UserInfo validate(String username, String password) {
+    public UserInfo validate(HttpServletRequest request, String username, String password) {
         UserAssertEnum.USERNAME_NOT_NULL.assertNotNull(username);
         User resUser = mapper.getUserByUsername(username);
         UserAssertEnum.USERNAME_PASSWORD_NOT_MATCH.assertNotNull(resUser);
@@ -40,13 +43,15 @@ public class UserServiceImpl
                         .matches(username+":"+password, resUser.getPassword()));
 
 //        List<Role> roleList =
-        return userToUserInfo(resUser);
+        return userToUserInfo(resUser,IpUtils.getIpAddr(request));
     }
 
-    private UserInfo userToUserInfo(User user) {
+    private UserInfo userToUserInfo(User user,String ip) {
         if (user != null) {
             UserInfo userInfo = new UserInfo();
             BeanUtils.copyProperties(user, userInfo);
+            userInfo.setUserId(user.getUserId()+"");
+            userInfo.setLoginIp(ip);
             return userInfo;
         }
         return null;

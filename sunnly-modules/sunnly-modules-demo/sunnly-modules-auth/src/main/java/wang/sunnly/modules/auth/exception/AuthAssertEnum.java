@@ -38,7 +38,7 @@ public enum AuthAssertEnum implements MacroExceptionAssert {
     /**
      * 用户名或密码错误
      */
-    USERNAME_PASSWORD_NOT_MATCH(60001, "用户名或密码错误"),
+    USERNAME_PASSWORD_NOT_MATCH(60001, "用户名或密码错误,错误次数{0}次，剩余{1}次"),
     ;
 
     /**

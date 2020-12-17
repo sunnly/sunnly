@@ -58,7 +58,7 @@ public class AuthController {
             AuthAssertEnum.INCORRECT_VERIFICATION.assertNotNull(authRequest.getCode());
             AuthAssertEnum.INCORRECT_VERIFICATION.assertIsTrue(
                     validateService.validateCode(new ServletWebRequest(request, response),
-                    "image", authRequest.getUsername(), authRequest.getCode()));
+                    "image", authRequest.getCodeId(), authRequest.getCode()));
         }
 
         //账户验证

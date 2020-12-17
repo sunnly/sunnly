@@ -5,6 +5,8 @@ import wang.sunnly.modules.admin.mapper.UserMapper;
 import wang.sunnly.modules.api.entity.UserInfo;
 import wang.sunnly.mysql.service.BaseService;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * UserService
  *
@@ -15,7 +17,7 @@ public interface UserService extends BaseService<UserMapper, User> {
 
     String getPassword(String username, String md5);
 
-    UserInfo validate(String username, String password);
+    UserInfo validate(HttpServletRequest request, String username, String password);
 }
 
 

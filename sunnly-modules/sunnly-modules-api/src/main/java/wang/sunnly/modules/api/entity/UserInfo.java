@@ -19,7 +19,7 @@ public class UserInfo {
     /**
      * 用户ID
      */
-    private Long userId;
+    private String userId;
 
     /**
      * 用户名
@@ -109,6 +109,16 @@ public class UserInfo {
      * 详细地址
      */
     private String addr;
+
+    /**
+     * 用户登录IP地址
+     */
+    private String loginIp;
+
+    /**
+     * 登录时间
+     */
+    private String loginTime;
 
     /**
      * 用户类型(0:系统默认,1:后台用户,2:平台用户)

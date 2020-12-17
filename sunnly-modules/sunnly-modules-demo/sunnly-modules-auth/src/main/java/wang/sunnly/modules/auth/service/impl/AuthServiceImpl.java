@@ -12,6 +12,7 @@ import wang.sunnly.modules.api.entity.UserInfo;
 import wang.sunnly.modules.auth.exception.AuthAssertEnum;
 import wang.sunnly.modules.auth.feign.UserFeign;
 import wang.sunnly.modules.auth.service.AuthService;
+import wang.sunnly.redis.utils.RedisOpsForValue;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -32,17 +33,18 @@ public class AuthServiceImpl implements AuthService {
     private UserFeign userFeign;
 
     @Resource
-    private RedisTemplate<String, String> redisTemplate;
+    private RedisOpsForValue<String,String> redisOpsForValue;
+//    private RedisTemplate<String, String> redisTemplate;
 
     @Value("${macro.user.locked.count:5}")
     private int lockedCount;
-    @Value("${macro.user.locked.count:5}")
-    private int time;
+    @Value("${macro.user.locked.timeout:5}")
+    private int timeout;
 
     @Value("${macro.jwt.user.secret:123456}")
     private String secret;
 
-    @Value("${macro.jwt.user.expired:3600*24}")
+    @Value("${macro.jwt.user.expired:86400}")
     private int expired;
 
 
@@ -51,12 +53,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public long lockedTime(String username){
-        return redisTemplate.opsForValue().increment(LOCKED_PREFIX_KEY + username, 0);
+        return redisOpsForValue.getExpire(LOCKED_PREFIX_KEY + username);
     }
 
     @Override
     public void lockedUser(String username){
-        redisTemplate.opsForValue().set(LOCKED_PREFIX_KEY + username, "locked", 5, TimeUnit.MINUTES);
+        redisOpsForValue.set(LOCKED_PREFIX_KEY + username, "locked", timeout, TimeUnit.MINUTES);
     }
 
     @Override
@@ -70,17 +72,18 @@ public class AuthServiceImpl implements AuthService {
 
         // 用户名或密码错误
         if (validate.getCode() == AuthAssertEnum.USERNAME_PASSWORD_NOT_MATCH.getCode()){
-            String locked = redisTemplate.opsForValue().get(VALIDATE_LOCKED_PREFIX_KEY + username);
+            String locked = redisOpsForValue.get(VALIDATE_LOCKED_PREFIX_KEY + username);
             int count = 0;
             if (locked != null){
                 count = Integer.parseInt(locked);
             }
             if (count < lockedCount){
-                redisTemplate.opsForValue().set(VALIDATE_LOCKED_PREFIX_KEY + username, (++count)+"", 1, TimeUnit.HOURS);
+                redisOpsForValue.set(VALIDATE_LOCKED_PREFIX_KEY + username, (++count)+"", 1, TimeUnit.HOURS);
             }else{
                 lockedUser(username);
+                redisOpsForValue.delete(VALIDATE_LOCKED_PREFIX_KEY + username);
             }
-            AuthAssertEnum.USERNAME_PASSWORD_NOT_MATCH.assertFail();
+            AuthAssertEnum.USERNAME_PASSWORD_NOT_MATCH.assertFail(count,lockedCount-count);
         }
         // 验证未成功，包括网络调用异常问题
         CommonResponseEnum.SERVER_ERROR.assertEquals(validate.getCode(),
@@ -88,6 +91,8 @@ public class AuthServiceImpl implements AuthService {
         // 用户登录成功
         UserInfo userInfo = validate.getData();
         AuthAssertEnum.LOGIN_ERROR.assertNotNull(userInfo);
+        // 登录成功清除登录失败此次
+        redisOpsForValue.delete(VALIDATE_LOCKED_PREFIX_KEY + username);
 
         // jwt token生成
         JwtUserInfo jwtUserInfo= new JwtUserInfo();

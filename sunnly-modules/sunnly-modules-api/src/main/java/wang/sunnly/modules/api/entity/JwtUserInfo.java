@@ -3,6 +3,8 @@ package wang.sunnly.modules.api.entity;
 import lombok.Data;
 import wang.sunnly.common.core.security.jwt.entity.IJwtInfo;
 
+import java.io.Serializable;
+
 /**
  * JwtUserInfo
  * JWT中封装的用户信息
@@ -11,7 +13,7 @@ import wang.sunnly.common.core.security.jwt.entity.IJwtInfo;
  * @since 2020/12/8 0008
  */
 @Data
-public class JwtUserInfo extends UserInfo implements IJwtInfo {
+public class JwtUserInfo extends UserInfo implements IJwtInfo, Serializable {
 
     @Override
     public String getUniquename() {
@@ -20,7 +22,7 @@ public class JwtUserInfo extends UserInfo implements IJwtInfo {
 
     @Override
     public String getId() {
-        return this.getUserId()+"";
+        return this.getUserId();
     }
 
 }
