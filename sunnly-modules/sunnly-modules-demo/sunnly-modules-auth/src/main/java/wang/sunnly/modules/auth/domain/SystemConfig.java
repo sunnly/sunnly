@@ -2,7 +2,13 @@ package wang.sunnly.modules.auth.domain;
 
 import javax.persistence.*;
 import lombok.Data;
-
+/**
+ * SystemConfig
+ * 系统配置
+ *
+ * @author Sunnly
+ * @since 2020/12/8
+ */
 @Data
 @Table(name = "auth_system_config")
 public class SystemConfig {

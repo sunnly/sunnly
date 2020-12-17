@@ -22,7 +22,7 @@ public enum AuthAssertEnum implements MacroExceptionAssert {
     /**
      * 账号已被锁定
      */
-    ACCOUT_LOCK(60100, "该账号已被锁定，请{0}分钟后重试..."),
+    ACCOUT_LOCK(60100, "该账号已被锁定，请{2}分钟后重试..."),
     /**
      * 登录异常
      */

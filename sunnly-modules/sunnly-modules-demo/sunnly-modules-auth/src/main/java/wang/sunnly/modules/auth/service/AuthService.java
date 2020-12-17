@@ -22,16 +22,6 @@ public interface AuthService {
     void lockedUser(String id);
 
     /**
-     * 设置validatecode
-     * @param id ID
-     * @param code 验证码
-     */
-    void setValidateCode(String id, String code);
-
-    String getValidateCode(String username);
-
-    void removeValidateCode(String username);
-    /**
      * 获取登录Token
      * @param username 用户名
      * @param password 密码

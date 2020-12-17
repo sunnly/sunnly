@@ -1,6 +1,7 @@
 package wang.sunnly.modules.auth.service.impl;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import wang.sunnly.common.core.security.jwt.utils.JwtUtil;
@@ -33,28 +34,29 @@ public class AuthServiceImpl implements AuthService {
     @Resource
     private RedisTemplate<String, String> redisTemplate;
 
+    @Value("${macro.user.locked.count:5}")
+    private int lockedCount;
+    @Value("${macro.user.locked.count:5}")
+    private int time;
+
+    @Value("${macro.jwt.user.secret:123456}")
+    private String secret;
+
+    @Value("${macro.jwt.user.expired:3600*24}")
+    private int expired;
+
+
+    private static final String VALIDATE_LOCKED_PREFIX_KEY = "validate:locked:";
+    private static final String LOCKED_PREFIX_KEY = "locked:";
+
     @Override
     public long lockedTime(String username){
-        return redisTemplate.opsForValue().increment("locked:" + username, 0);
+        return redisTemplate.opsForValue().increment(LOCKED_PREFIX_KEY + username, 0);
     }
 
     @Override
     public void lockedUser(String username){
-        redisTemplate.opsForValue().set("locked:"+username, "locked", 5, TimeUnit.MINUTES);
-    }
-
-    @Override
-    public void setValidateCode(String username, String code){
-        redisTemplate.opsForValue().set("validate:code:" + username, code,5, TimeUnit.MINUTES);
-    }
-    @Override
-    public String getValidateCode(String username){
-        return redisTemplate.opsForValue().get("validate:code:" + username);
-    }
-
-    @Override
-    public void removeValidateCode(String username){
-        redisTemplate.opsForValue().set("validate:code:" + username, "", 1, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set(LOCKED_PREFIX_KEY + username, "locked", 5, TimeUnit.MINUTES);
     }
 
     @Override
@@ -63,33 +65,36 @@ public class AuthServiceImpl implements AuthService {
         map.put("username",username);
         map.put("password",password);
         ObjectResponse<UserInfo> validate = userFeign.validate(map);
-        //断言正常返回
+        // 断言正常返回
         CommonResponseEnum.SERVER_BUSY.assertNotNull(validate);
+
+        // 用户名或密码错误
         if (validate.getCode() == AuthAssertEnum.USERNAME_PASSWORD_NOT_MATCH.getCode()){
-            //用户名或密码错误
-            String lockedCount = redisTemplate.opsForValue().get("validate:locked:" + username);
+            String locked = redisTemplate.opsForValue().get(VALIDATE_LOCKED_PREFIX_KEY + username);
             int count = 0;
-            if (lockedCount != null){
-                count = Integer.parseInt(lockedCount);
+            if (locked != null){
+                count = Integer.parseInt(locked);
             }
-            if (count < 5){
-                redisTemplate.opsForValue().set("validate:locked:"+username, (++count)+"", 1, TimeUnit.HOURS);
+            if (count < lockedCount){
+                redisTemplate.opsForValue().set(VALIDATE_LOCKED_PREFIX_KEY + username, (++count)+"", 1, TimeUnit.HOURS);
             }else{
                 lockedUser(username);
             }
             AuthAssertEnum.USERNAME_PASSWORD_NOT_MATCH.assertFail();
         }
+        // 验证未成功，包括网络调用异常问题
         CommonResponseEnum.SERVER_ERROR.assertEquals(validate.getCode(),
                 CommonResponseEnum.SUCCESS.getCode());
+        // 用户登录成功
         UserInfo userInfo = validate.getData();
         AuthAssertEnum.LOGIN_ERROR.assertNotNull(userInfo);
 
-//        jwt token生成
+        // jwt token生成
         JwtUserInfo jwtUserInfo= new JwtUserInfo();
         BeanUtils.copyProperties(userInfo, jwtUserInfo);
         JwtUtil jwtUtil = new JwtUtil();
         try {
-            return jwtUtil.genJwt(jwtUserInfo, "123456");
+            return jwtUtil.genJwt(jwtUserInfo, secret, expired);
         } catch (Exception e) {
             AuthAssertEnum.LOGIN_ERROR.assertFail();
             return null;

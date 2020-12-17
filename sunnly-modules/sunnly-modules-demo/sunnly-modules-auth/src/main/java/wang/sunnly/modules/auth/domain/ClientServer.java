@@ -2,7 +2,13 @@ package wang.sunnly.modules.auth.domain;
 
 import javax.persistence.*;
 import lombok.Data;
-
+/**
+ * ClientServer
+ * 微服务调用端
+ *
+ * @author Sunnly
+ * @since 2020/12/8
+ */
 @Data
 @Table(name = "auth_client_server")
 public class ClientServer {
