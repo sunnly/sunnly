@@ -46,7 +46,8 @@ public class UserController extends BaseController<UserService, User> {
         List<User> list = new ArrayList<>(16);
         SnowFlake snowFlake = new SnowFlake(5, 6);
         Random random = new Random();
-        for (int i = 0; i < 10; i++) {
+        int batch = 10;
+        for (int i = 0; i < batch; i++) {
             User user = new User();
             user.setId(snowFlake.nextId(false));
             user.setName("sunnly_"+i);

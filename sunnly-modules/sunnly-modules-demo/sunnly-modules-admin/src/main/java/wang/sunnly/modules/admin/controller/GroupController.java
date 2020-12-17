@@ -28,7 +28,7 @@ public class GroupController extends BaseController<GroupService, Group> {
     public ObjectResponse<Group> addGroup(@RequestBody Group entity, HttpServletRequest request){
         String token = request.getHeader("Auth");
 //        TODO 获取jwt中的用户信息
-//        UserAssertEnum.USER_TOKEN_NOT_EMPTY.assertNotNull(token);
+//        UserAssertEnum.USER_TOKEN_NOT_EMPTY.assertNotNull(token)
         Long userId = 1001L;
         String userName = "admin";
         String userIp = "192.168.0.1";

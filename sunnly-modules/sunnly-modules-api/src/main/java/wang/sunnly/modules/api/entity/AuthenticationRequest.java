@@ -17,7 +17,7 @@ public class AuthenticationRequest implements Serializable {
     /**
      * 系统渠道
      */
-    private String scSystemChannel;
+    private String channel;
     /**
      * 登录用户名
      */

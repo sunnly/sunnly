@@ -12,6 +12,8 @@ import java.util.Map;
  * @since 2020/11/29 0029
  */
 public class CosineSimilarAlgorithm {
+
+    private static final int BUFFER_LEN = 2;
     public static double getSimilarity(String doc1, String doc2) {
         if (doc1 != null && doc1.trim().length() > 0 && doc2 != null
                 && doc2.trim().length() > 0) {
@@ -88,7 +90,7 @@ public class CosineSimilarAlgorithm {
     public static short getGb2312Id(char ch) {
         try {
             byte[] buffer = Character.toString(ch).getBytes("GB2312");
-            if (buffer.length != 2) {
+            if (buffer.length != BUFFER_LEN) {
                 // 正常情况下buffer应该是两个字节，否则说明ch不属于GB2312编码，故返回'?'，此时说明不认识该字符
                 return -1;
             }
