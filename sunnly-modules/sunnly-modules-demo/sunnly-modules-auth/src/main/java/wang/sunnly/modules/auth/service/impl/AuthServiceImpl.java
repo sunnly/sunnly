@@ -34,7 +34,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Resource
     private RedisOpsForValue<String,String> redisOpsForValue;
-//    private RedisTemplate<String, String> redisTemplate;
 
     @Value("${macro.user.locked.count:5}")
     private int lockedCount;
