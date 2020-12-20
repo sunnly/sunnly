@@ -1,11 +1,15 @@
 package wang.sunnly.modules.admin.domain;
 
-import javax.persistence.*;
 import lombok.Data;
+import wang.sunnly.common.core.utils.tree.TreeNode;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Table(name = "base_group")
-public class Group {
+public class Group extends TreeNode<Long> {
     /**
      * 组ID
      */
@@ -168,6 +172,11 @@ public class Group {
      */
     @Column(name = "`type`")
     private int type;
+    /**
+     * 排序
+     */
+    @Column(name = "group_order")
+    private int groupOrder;
 
     /**
      * 创建日期
@@ -216,4 +225,26 @@ public class Group {
      */
     @Column(name = "update_user_ip")
     private String updateUserIp;
+
+
+    @Override
+    public Long getId() {
+        return this.groupId;
+    }
+
+    @Override
+    public Long getParentId() {
+        return this.groupParentId == null ? 0L : this.groupParentId;
+    }
+
+    @Override
+    public Integer getSort() {
+        return this.getGroupOrder();
+    }
+
+    @Override
+    public String getName() {
+        return this.getGroupName();
+    }
+
 }

@@ -12,19 +12,20 @@ import wang.sunnly.mysql.service.impl.BaseServiceImpl;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class GroupServiceImpl
         extends BaseServiceImpl<GroupMapper, Group>
         implements GroupService, BaseService<GroupMapper, Group> {
 
-// todo   @Resource
+    @Resource
     private SnowFlake snowFlake;
 
     @Override
     public int insertGroup(Group entity, Long userId, String userName, String userIp) {
-        // TODO 后期以bean的形式注入
-        snowFlake = new SnowFlake(5, 5);
+
         Long groupId = snowFlake.nextId();
         entity.setGroupId(groupId);
         Long groupParentId = entity.getGroupParentId();
@@ -44,6 +45,7 @@ public class GroupServiceImpl
         } else {
             entity.setGroupIds(groupId + "");
             entity.setGroupAuthIds(null);
+            entity.setGroupParentId(0L);
         }
         //状态为正常
         entity.setGroupStatus("1");
@@ -56,5 +58,12 @@ public class GroupServiceImpl
         return mapper.insert(entity);
     }
 
-
+    @Override
+    public List<Group> getChildren(long parentId, int exclude) {
+        return mapper.getChildren(parentId, exclude);
+    }
+    @Override
+    public List<Map<String,Object>> query(long parentId, int exclude) {
+        return mapper.query(parentId, exclude);
+    }
 }

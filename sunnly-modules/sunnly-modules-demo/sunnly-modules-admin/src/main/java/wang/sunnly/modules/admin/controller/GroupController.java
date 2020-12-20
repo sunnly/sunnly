@@ -2,12 +2,10 @@ package wang.sunnly.modules.admin.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wang.sunnly.common.core.security.jwt.utils.JwtUtil;
 import wang.sunnly.common.web.exception.enums.ArgumentResponseEnum;
+import wang.sunnly.common.web.msg.result.ListResponse;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.admin.domain.Group;
 import wang.sunnly.modules.admin.exception.UserAssertEnum;
@@ -16,7 +14,8 @@ import wang.sunnly.modules.api.entity.JwtUserInfo;
 import wang.sunnly.mysql.controller.BaseController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * GroupController
@@ -47,7 +46,7 @@ public class GroupController extends BaseController<GroupService, Group> {
             JwtUtil jwtUtil = new JwtUtil();
             jwtInfo = (JwtUserInfo) jwtUtil.getJwtInfo(JwtUserInfo.class, token, secret);
         } catch (Exception e) {
-            log.error("token 解析异常:"+e.getMessage());
+            log.error("token 解析异常:" + e.getMessage());
             ArgumentResponseEnum.TOKEN_INVALID.assertFail(e.getMessage());
         }
         ArgumentResponseEnum.TOKEN_NOT_NULL.assertNotNull(jwtInfo);
@@ -57,4 +56,21 @@ public class GroupController extends BaseController<GroupService, Group> {
 //        String loginTime = jwtInfo.getLoginTime()
         return new ObjectResponse<Group>(service.insertGroup(entity, Long.valueOf(userId), username, loginIp) == 1 ? entity : null);
     }
+
+    @GetMapping("/children/{parentId}")
+    public ListResponse<Group> getChildren(@PathVariable("parentId") long parentId,
+                                           @RequestParam(value = "exclude", defaultValue = "0") int exclude) {
+        return new ListResponse<>(service.getChildren(parentId, exclude));
+    }
+
+    @GetMapping("/children1/{parentId}")
+    public ListResponse<Map<String, Object>> getChildren1(@PathVariable("parentId") long parentId,
+                                                          @RequestParam(value = "exclude", defaultValue = "0") int exclude) {
+        List<Map<String, Object>> children = service.query(parentId, exclude);
+//        TreeNodeUtils<Long, Group> treeNodeUtils = new TreeNodeUtils<Long, Group>()
+//        return new ObjectResponse<>(treeNodeUtils.parseTreeNode(children, parentId))
+        return new ListResponse<>(children);
+    }
+
+
 }

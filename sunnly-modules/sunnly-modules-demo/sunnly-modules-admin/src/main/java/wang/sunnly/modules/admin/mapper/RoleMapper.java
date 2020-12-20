@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface RoleMapper extends BaseMapper<Role> {
 
-    @Select("select ")
-    public List<String> getRolesByUserId(Long userId);
+    @Select("select * from base_user")
+    List<String> getRolesByUserId(Long userId);
+
 }

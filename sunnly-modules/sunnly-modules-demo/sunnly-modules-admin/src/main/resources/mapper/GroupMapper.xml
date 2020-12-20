@@ -31,6 +31,7 @@
     <result column="street_name" jdbcType="VARCHAR" property="streetName" />
     <result column="addr" jdbcType="VARCHAR" property="addr" />
     <result column="type" jdbcType="BOOLEAN" property="type" />
+    <result column="group_order" jdbcType="INTEGER" property="groupOrder" />
     <result column="create_time" jdbcType="VARCHAR" property="createTime" />
     <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
     <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
@@ -46,7 +47,7 @@
     group_ids, group_auth_ids, group_manager_id, group_manager_name, group_phone, group_mobile, 
     group_desc, group_method, group_status, country_code, country_name, province_code, 
     province_name, city_code, city_name, area_code, area_name, street_code, street_name, 
-    addr, `type`, create_time, create_user_id, create_user_name, create_user_ip, update_time, 
+    addr, `type`, group_order, create_time, create_user_id, create_user_name, create_user_ip, update_time,
     update_user_id, update_user_name, update_user_ip
   </sql>
 </mapper>
