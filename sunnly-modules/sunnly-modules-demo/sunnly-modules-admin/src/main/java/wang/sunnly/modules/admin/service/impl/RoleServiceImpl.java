@@ -27,6 +27,8 @@ public class RoleServiceImpl
         list.add("group_phone");
         list.add("create_time");
         list.add("group_parent_id");
+        list.add("fullname");
+        list.add("group_fullname");
         return list;
 //        return mapper.getDictId(dictFiled);
     }

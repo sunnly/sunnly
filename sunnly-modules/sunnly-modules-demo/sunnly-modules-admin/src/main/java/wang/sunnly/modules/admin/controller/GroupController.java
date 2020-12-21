@@ -42,13 +42,10 @@ public class GroupController extends BaseController<GroupService, Group> {
         UserAssertEnum.USER_TOKEN_NOT_EMPTY.assertNotNull(token);
 
         JwtUserInfo jwtInfo = null;
-        try {
-            JwtUtil jwtUtil = new JwtUtil();
-            jwtInfo = (JwtUserInfo) jwtUtil.getJwtInfo(JwtUserInfo.class, token, secret);
-        } catch (Exception e) {
-            log.error("token 解析异常:" + e.getMessage());
-            ArgumentResponseEnum.TOKEN_INVALID.assertFail(e.getMessage());
-        }
+
+        JwtUtil jwtUtil = new JwtUtil();
+        jwtInfo = (JwtUserInfo) jwtUtil.getJwtInfo(JwtUserInfo.class, token, secret);
+
         ArgumentResponseEnum.TOKEN_NOT_NULL.assertNotNull(jwtInfo);
         String userId = jwtInfo.getId();
         String username = jwtInfo.getUsername();

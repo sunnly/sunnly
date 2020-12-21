@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import wang.sunnly.modules.admin.domain.Group;
-import wang.sunnly.mysql.annotation.DictReplace;
+import wang.sunnly.mysql.annotation.DataPermission;
 import wang.sunnly.tk.mybatis.mapper.BaseMapper;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public interface GroupMapper extends BaseMapper<Group> {
 
     @Select("<script>" +
             "SELECT " +
-            "group_id, group_code, group_name, group_fullname, group_parent_id, group_parent_name, \n" +
+            "group_id, group_code, group_name, group_fullname as fullName, group_parent_id, group_parent_name, \n" +
             "    group_ids, group_auth_ids, group_manager_id, group_manager_name, group_phone, group_mobile, \n" +
             "    group_desc, group_method, group_status, country_code, country_name, province_code, \n" +
             "    province_name, city_code, city_name, area_code, area_name, street_code, street_name, \n" +
@@ -43,7 +43,7 @@ public interface GroupMapper extends BaseMapper<Group> {
             "</if>" +
             "</script>")
 //    @ResultMap("BaseResultMap")
-    @DictReplace(dictIdFieldName = "aaa")
+    @DataPermission(columnCode = "aaa")
     List<Map<String, Object>> query(@Param("parentId") Long parentId, @Param("exclude") Integer exclude);
 
 

@@ -1,7 +1,7 @@
 package wang.sunnly.modules.admin.domain;
 
 import lombok.Data;
-import wang.sunnly.common.core.utils.tree.TreeNode;
+import wang.sunnly.common.core.utils.tree.BaseTreeNode;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Table(name = "base_group")
-public class Group extends TreeNode<Long> {
+public class Group extends BaseTreeNode<Long> {
     /**
      * 组ID
      */

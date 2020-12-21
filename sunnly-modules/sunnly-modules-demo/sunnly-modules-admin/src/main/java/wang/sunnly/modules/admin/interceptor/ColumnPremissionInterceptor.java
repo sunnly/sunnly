@@ -23,7 +23,7 @@ import wang.sunnly.common.web.exception.enums.ArgumentResponseEnum;
 import wang.sunnly.modules.admin.exception.UserAssertEnum;
 import wang.sunnly.modules.admin.service.RoleService;
 import wang.sunnly.modules.api.entity.JwtUserInfo;
-import wang.sunnly.mysql.annotation.DictReplace;
+import wang.sunnly.mysql.annotation.DataPermission;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -64,10 +64,10 @@ public class ColumnPremissionInterceptor implements Interceptor {
 
             //获取原始sql
             String originSql = boundSql.getSql();
-            String dictIdFieldName = getDictIdFieldName(ms);
-            if (dictIdFieldName != null) {
+            String dataPermission = getDataPermission(ms);
+            if (dataPermission != null) {
                 //修改后sql
-                String changeSql = parseSql(originSql, dictIdFieldName);
+                String changeSql = parseSql(originSql, dataPermission);
                 args[5] = new BoundSql(ms.getConfiguration(), changeSql,
                         boundSql.getParameterMappings(), parameterObject);
             }
@@ -86,7 +86,7 @@ public class ColumnPremissionInterceptor implements Interceptor {
 
     }
 
-    private String getDictIdFieldName(MappedStatement ms) throws ClassNotFoundException {
+    private String getDataPermission(MappedStatement ms) throws ClassNotFoundException {
         String namespace = ms.getId();
         String className = namespace.substring(0, namespace.lastIndexOf("."));
         String methedName = namespace.substring(namespace.lastIndexOf(".") + 1, namespace.length());
@@ -94,9 +94,9 @@ public class ColumnPremissionInterceptor implements Interceptor {
 
         for (Method method : methods) {
             if (method.getName().equals(methedName)) {
-                DictReplace annotation = method.getAnnotation(DictReplace.class);
+                DataPermission annotation = method.getAnnotation(DataPermission.class);
                 if (annotation != null) {
-                    return annotation.dictIdFieldName();
+                    return annotation.columnCode();
                 }
             }
         }
@@ -131,7 +131,7 @@ public class ColumnPremissionInterceptor implements Interceptor {
         return jwtInfo;
     }
 
-    private String parseSql(String sql, String dictIdFieldName) {
+    private String parseSql(String sql, String dataPermission) {
         StringBuffer newSql = new StringBuffer();
         try {
             //解析sql 获得结构化statement
@@ -149,7 +149,7 @@ public class ColumnPremissionInterceptor implements Interceptor {
                             if (fromItem instanceof Table) {
                                 Table subJoin = (Table) fromItem;
                                 String tableName = ((Table) fromItem).getFullyQualifiedName();
-                                blockList = getColumn(tableName, dictIdFieldName);
+                                blockList = getColumn(tableName, dataPermission);
                             }
 
                             // 在保留配置字段中，如果为设置则查全部
@@ -160,7 +160,7 @@ public class ColumnPremissionInterceptor implements Interceptor {
                                     SelectItem si = it.next();
                                     if (si instanceof SelectExpressionItem) {
                                         // 只保留配置的字段
-                                        if (!blockList.contains(si.toString())) {
+                                        if (!blockList.contains(si.toString().split(" ")[0])) {
                                             it.remove();
                                         }
 //                                    for (String str : blockList) {
