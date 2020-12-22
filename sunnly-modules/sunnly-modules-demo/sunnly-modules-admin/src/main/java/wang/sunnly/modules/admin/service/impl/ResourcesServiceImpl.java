@@ -10,7 +10,12 @@ import wang.sunnly.modules.admin.service.ResourcesService;
 import wang.sunnly.modules.admin.service. ResourcesService;
 import wang.sunnly.mysql.service.BaseService;
 import wang.sunnly.mysql.service.impl.BaseServiceImpl;
-
+/**
+ * ResourcesServiceImpl
+ *
+ * @author Sunnly
+ * @since 2020/12/22
+ */
 @Service
 public class ResourcesServiceImpl
         extends BaseServiceImpl< ResourcesMapper,  Resources>

@@ -9,7 +9,12 @@ import wang.sunnly.tk.mybatis.mapper.BaseMapper;
 
 import java.util.List;
 import java.util.Map;
-
+/**
+ * GroupMapper
+ *
+ * @author Sunnly
+ * @since 2020/12/22
+ */
 public interface GroupMapper extends BaseMapper<Group> {
 
     /**
@@ -59,7 +64,7 @@ public interface GroupMapper extends BaseMapper<Group> {
             "AND group_id != #{parentId}" +
             "</if>" +
             "</script>")
-    @DataPermission("aaa")
+//    @DataPermission("aaa")
     List<Map<String, Object>> query(@Param("parentId") Long parentId, @Param("exclude") Integer exclude);
 
 

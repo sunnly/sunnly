@@ -12,6 +12,8 @@ spring:
         password: sunnly
     props:
       sql.show: true
+
+
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   configuration:

@@ -1,8 +1,6 @@
 package wang.sunnly.modules.admin.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import wang.sunnly.modules.admin.interceptor.ColumnPremissionInterceptor;
 
 /**
  * MysqlConfig
@@ -25,8 +23,8 @@ public class MyBatisConfig {
 //    }
 
 //    @Bean
-//    ColumnPremissionInterceptor columnPremissionInterceptor(){
-//        return new ColumnPremissionInterceptor();
+//    ColumnPermissionInterceptor columnPermissionInterceptor(){
+//        return new ColumnPermissionInterceptor();
 //    }
 
 }

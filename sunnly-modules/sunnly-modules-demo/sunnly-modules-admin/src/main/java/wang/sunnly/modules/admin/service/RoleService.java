@@ -6,7 +6,12 @@ import wang.sunnly.common.api.entity.JwtUserInfo;
 import wang.sunnly.mysql.service.BaseService;
 
 import java.util.List;
-
+/**
+ * RoleService
+ *
+ * @author Sunnly
+ * @since 2020/12/22
+ */
 public interface RoleService extends BaseService<RoleMapper, Role> {
 
     List<String> getDictId(String dictFiled, JwtUserInfo userInfo);

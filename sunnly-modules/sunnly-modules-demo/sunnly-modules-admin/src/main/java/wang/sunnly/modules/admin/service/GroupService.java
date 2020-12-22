@@ -6,7 +6,12 @@ import wang.sunnly.mysql.service.BaseService;
 
 import java.util.List;
 import java.util.Map;
-
+/**
+ * GroupService
+ *
+ * @author Sunnly
+ * @since 2020/12/22
+ */
 public interface GroupService extends BaseService<GroupMapper, Group> {
 
     /**

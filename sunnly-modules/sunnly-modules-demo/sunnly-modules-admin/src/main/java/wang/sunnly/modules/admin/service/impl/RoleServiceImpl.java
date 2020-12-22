@@ -10,7 +10,12 @@ import wang.sunnly.mysql.service.impl.BaseServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * RoleServiceImpl
+ *
+ * @author Sunnly
+ * @since 2020/12/22
+ */
 @Service
 public class RoleServiceImpl
         extends BaseServiceImpl<RoleMapper, Role>

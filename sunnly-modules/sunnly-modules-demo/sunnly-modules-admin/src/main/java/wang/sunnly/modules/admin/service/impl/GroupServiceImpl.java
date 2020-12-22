@@ -15,6 +15,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * GroupServiceImpl
+ *
+ * @author Sunnly
+ * @since 2020/12/22
+ */
 @Service
 public class GroupServiceImpl
         extends BaseServiceImpl<GroupMapper, Group>

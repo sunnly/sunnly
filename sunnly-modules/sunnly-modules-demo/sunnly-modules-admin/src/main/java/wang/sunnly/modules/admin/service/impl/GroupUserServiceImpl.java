@@ -10,7 +10,12 @@ import wang.sunnly.modules.admin.service.GroupUserService;
 import wang.sunnly.modules.admin.service.GroupUserService;
 import wang.sunnly.mysql.service.BaseService;
 import wang.sunnly.mysql.service.impl.BaseServiceImpl;
-
+/**
+ * GroupUserServiceImpl
+ *
+ * @author Sunnly
+ * @since 2020/12/22
+ */
 @Service
 public class GroupUserServiceImpl
         extends BaseServiceImpl<GroupUserMapper, GroupUser>
