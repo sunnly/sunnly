@@ -17,7 +17,6 @@
     <modules>
         <module>sunnly-modules-demo</module>
         <module>sunnly-modules-gateway</module>
-        <module>sunnly-modules-api</module>
     </modules>
 
 </project>

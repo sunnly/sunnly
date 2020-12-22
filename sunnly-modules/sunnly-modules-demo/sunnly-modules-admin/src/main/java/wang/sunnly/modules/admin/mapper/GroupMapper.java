@@ -42,8 +42,24 @@ public interface GroupMapper extends BaseMapper<Group> {
             "AND group_id != #{parentId}" +
             "</if>" +
             "</script>")
-//    @ResultMap("BaseResultMap")
-    @DataPermission(columnCode = "aaa")
+    @ResultMap("BaseResultMap")
+    List<Map<String, Object>> query1(@Param("parentId") Long parentId, @Param("exclude") Integer exclude);
+
+    @Select("<script>" +
+            "SELECT " +
+            "group_id, group_code, group_name, group_fullname as fullName, group_parent_id, group_parent_name, \n" +
+            "    group_ids, group_auth_ids, group_manager_id, group_manager_name, group_phone, group_mobile, \n" +
+            "    group_desc, group_method, group_status, country_code, country_name, province_code, \n" +
+            "    province_name, city_code, city_name, area_code, area_name, street_code, street_name, \n" +
+            "    addr, `type`, group_order, create_time, create_user_id, create_user_name, create_user_ip, update_time,\n" +
+            "    update_user_id, update_user_name, update_user_ip" +
+            " FROM base_group " +
+            "WHERE FIND_IN_SET(#{parentId},CONCAT(group_id,',',group_ids)) " +
+            "<if test=\"exclude != 1\">" +
+            "AND group_id != #{parentId}" +
+            "</if>" +
+            "</script>")
+    @DataPermission("aaa")
     List<Map<String, Object>> query(@Param("parentId") Long parentId, @Param("exclude") Integer exclude);
 
 

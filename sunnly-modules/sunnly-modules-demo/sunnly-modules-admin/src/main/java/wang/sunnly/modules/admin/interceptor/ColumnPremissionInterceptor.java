@@ -22,7 +22,7 @@ import wang.sunnly.common.core.security.jwt.utils.JwtUtil;
 import wang.sunnly.common.web.exception.enums.ArgumentResponseEnum;
 import wang.sunnly.modules.admin.exception.UserAssertEnum;
 import wang.sunnly.modules.admin.service.RoleService;
-import wang.sunnly.modules.api.entity.JwtUserInfo;
+import wang.sunnly.common.api.entity.JwtUserInfo;
 import wang.sunnly.mysql.annotation.DataPermission;
 
 import java.lang.reflect.Method;

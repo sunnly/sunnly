@@ -9,7 +9,7 @@ import wang.sunnly.modules.admin.domain.User;
 import wang.sunnly.modules.admin.exception.UserAssertEnum;
 import wang.sunnly.modules.admin.mapper.UserMapper;
 import wang.sunnly.modules.admin.service.UserService;
-import wang.sunnly.modules.api.entity.UserInfo;
+import wang.sunnly.common.api.entity.UserInfo;
 import wang.sunnly.mysql.service.BaseService;
 import wang.sunnly.mysql.service.impl.BaseServiceImpl;
 

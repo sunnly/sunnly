@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import wang.sunnly.modules.admin.domain.Role;
 import wang.sunnly.modules.admin.mapper.RoleMapper;
 import wang.sunnly.modules.admin.service.RoleService;
-import wang.sunnly.modules.api.entity.JwtUserInfo;
+import wang.sunnly.common.api.entity.JwtUserInfo;
 import wang.sunnly.mysql.service.BaseService;
 import wang.sunnly.mysql.service.impl.BaseServiceImpl;
 

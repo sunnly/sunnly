@@ -24,9 +24,9 @@ public class MyBatisConfig {
 //        return interceptor;
 //    }
 
-    @Bean
-    ColumnPremissionInterceptor columnPremissionInterceptor(){
-        return new ColumnPremissionInterceptor();
-    }
+//    @Bean
+//    ColumnPremissionInterceptor columnPremissionInterceptor(){
+//        return new ColumnPremissionInterceptor();
+//    }
 
 }

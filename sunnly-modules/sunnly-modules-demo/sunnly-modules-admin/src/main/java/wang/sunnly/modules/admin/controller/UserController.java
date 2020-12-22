@@ -2,11 +2,12 @@ package wang.sunnly.modules.admin.controller;
 
 import com.alibaba.nacos.common.utils.Md5Utils;
 import org.springframework.web.bind.annotation.*;
+import wang.sunnly.common.api.entity.UserInfo;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.admin.domain.User;
 import wang.sunnly.modules.admin.service.UserService;
-import wang.sunnly.modules.api.entity.FrontUserInfo;
-import wang.sunnly.modules.api.entity.UserInfo;
+import wang.sunnly.common.api.entity.FrontUserInfo;
+import wang.sunnly.common.api.entity.UserInfo;
 import wang.sunnly.mysql.controller.BaseController;
 
 import javax.servlet.http.HttpServletRequest;

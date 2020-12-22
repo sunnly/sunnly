@@ -3,6 +3,7 @@ package wang.sunnly.modules.admin.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import wang.sunnly.common.api.entity.JwtUserInfo;
 import wang.sunnly.common.core.security.jwt.utils.JwtUtil;
 import wang.sunnly.common.web.exception.enums.ArgumentResponseEnum;
 import wang.sunnly.common.web.msg.result.ListResponse;
@@ -10,7 +11,6 @@ import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.admin.domain.Group;
 import wang.sunnly.modules.admin.exception.UserAssertEnum;
 import wang.sunnly.modules.admin.service.GroupService;
-import wang.sunnly.modules.api.entity.JwtUserInfo;
 import wang.sunnly.mysql.controller.BaseController;
 
 import javax.servlet.http.HttpServletRequest;

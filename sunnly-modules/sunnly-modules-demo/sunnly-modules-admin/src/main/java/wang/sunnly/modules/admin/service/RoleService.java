@@ -2,7 +2,7 @@ package wang.sunnly.modules.admin.service;
 
 import wang.sunnly.modules.admin.domain.Role;
 import wang.sunnly.modules.admin.mapper.RoleMapper;
-import wang.sunnly.modules.api.entity.JwtUserInfo;
+import wang.sunnly.common.api.entity.JwtUserInfo;
 import wang.sunnly.mysql.service.BaseService;
 
 import java.util.List;

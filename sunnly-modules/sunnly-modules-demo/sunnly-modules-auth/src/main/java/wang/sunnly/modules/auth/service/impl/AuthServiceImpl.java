@@ -2,13 +2,12 @@ package wang.sunnly.modules.auth.service.impl;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import wang.sunnly.common.api.entity.JwtUserInfo;
+import wang.sunnly.common.api.entity.UserInfo;
 import wang.sunnly.common.core.security.jwt.utils.JwtUtil;
 import wang.sunnly.common.web.exception.enums.CommonResponseEnum;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
-import wang.sunnly.modules.api.entity.JwtUserInfo;
-import wang.sunnly.modules.api.entity.UserInfo;
 import wang.sunnly.modules.auth.exception.AuthAssertEnum;
 import wang.sunnly.modules.auth.feign.UserFeign;
 import wang.sunnly.modules.auth.service.AuthService;

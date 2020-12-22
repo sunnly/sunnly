@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
-import wang.sunnly.modules.api.entity.UserInfo;
+import wang.sunnly.common.api.entity.UserInfo;
 
 import java.util.Map;
 
