@@ -17,6 +17,13 @@
 
     <dependencies>
 
+        <!--鉴权服务器引入鉴权工具包，需要添加 EnableMacroAuthServerSecurity-->
+        <dependency>
+            <groupId>wang.sunnly</groupId>
+            <artifactId>macro-tools-security</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <dependency>
             <groupId>wang.sunnly</groupId>
             <artifactId>macro-common-api</artifactId>

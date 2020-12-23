@@ -8,7 +8,12 @@ import wang.sunnly.modules.auth.mapper.SystemConfigMapper;
 import wang.sunnly.modules.auth.service.SystemConfigService;
 import wang.sunnly.mysql.service.BaseService;
 import wang.sunnly.mysql.service.impl.BaseServiceImpl;
-
+/**
+ * SystemConfigServiceImpl
+ *
+ * @author Sunnly
+ * @since 2020/12/11
+ */
 @Service
 public class SystemConfigServiceImpl
         extends BaseServiceImpl<SystemConfigMapper, SystemConfig>

@@ -10,13 +10,16 @@ import wang.sunnly.modules.auth.service.ClientService;
 import wang.sunnly.modules.auth.service.ClientService;
 import wang.sunnly.mysql.service.BaseService;
 import wang.sunnly.mysql.service.impl.BaseServiceImpl;
-
+/**
+ * ClientServiceImpl
+ *
+ * @author Sunnly
+ * @since 2020/12/11
+ */
 @Service
 public class ClientServiceImpl
         extends BaseServiceImpl<ClientMapper, Client>
         implements ClientService, BaseService<ClientMapper, Client> {
 
-    @Resource
-    private ClientMapper clientMapper;
 
 }

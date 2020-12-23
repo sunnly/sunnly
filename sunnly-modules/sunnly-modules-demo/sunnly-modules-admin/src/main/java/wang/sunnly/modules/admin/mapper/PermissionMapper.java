@@ -3,10 +3,10 @@ package wang.sunnly.modules.admin.mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import wang.sunnly.modules.admin.domain.Permission;
+import wang.sunnly.modules.admin.domain.DataRules;
 import wang.sunnly.tk.mybatis.mapper.BaseMapper;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * PermissionMapper
@@ -20,7 +20,7 @@ public interface PermissionMapper extends BaseMapper<Permission> {
             "SELECT rule.prule_id as id,rule.prule_rule as rule,prule_permit as permit " +
             "FROM base_permission_rule AS rule " +
             "LEFT JOIN base_permission_relations AS rel ON (rule.prule_id=rel.prule_id) " +
-            "WHERE permission_code='abc' " +
+            "WHERE permission_code=#{permissionCode} " +
             "AND (1=2 " +
 
             "<if test=\"userId != null and userId !=''\">" +
@@ -48,8 +48,8 @@ public interface PermissionMapper extends BaseMapper<Permission> {
             "AND rule.prule_status='1' " +
             "ORDER BY pr_external_type ASC, pr_order DESC" +
             "</script>")
-    List<Map<String,String>> getPermission(@Param("userId") String userId, @Param("dept") String dept,
-                                           @Param("org") String org, @Param("roles") List<String> roles,
-                                           @Param("permissionCode") String permissionCode, @Param("type") int type);
+    List<DataRules> getPermission(@Param("userId") String userId, @Param("dept") String dept,
+                                  @Param("org") String org, @Param("roles") List<String> roles,
+                                  @Param("permissionCode") String permissionCode, @Param("type") int type);
 
 }

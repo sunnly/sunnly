@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public interface PermissionService extends BaseService<PermissionMapper, Permission> {
 
-    List<Map<String,String>> getColumn(JwtUserInfo userInfo, String permissionCode);
+    List<List<String>> getColumn(JwtUserInfo userInfo, String permissionCode);
 
     Map<String, String> getRowRule(JwtUserInfo userInfo, String permissionCode);
 

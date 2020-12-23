@@ -26,6 +26,7 @@
         <module>sunnly-modules-sqlite</module>
         <module>sunnly-modules-auth</module>
         <module>sunnly-modules-admin</module>
+        <module>sunnly-modules-security</module>
     </modules>
 
     <dependencies>
