@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.PermissionRelationsMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.PermissionRelations">
+    <!--@mbg.generated generated on Tue Dec 22 20:41:14 CST 2020.-->
+    <!--@Table base_permission_relations-->
+    <result column="pr_id" jdbcType="BIGINT" property="prId" />
+    <result column="pr_external_type" jdbcType="TINYINT" property="prExternalType" />
+    <result column="pr_external_id" jdbcType="BIGINT" property="prExternalId" />
+    <result column="prule_id" jdbcType="BIGINT" property="pruleId" />
+    <result column="pr_order" jdbcType="INTEGER" property="prOrder" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Dec 22 20:41:14 CST 2020.-->
+    pr_id, pr_external_type, pr_external_id, prule_id, pr_order
+  </sql>
+</mapper>

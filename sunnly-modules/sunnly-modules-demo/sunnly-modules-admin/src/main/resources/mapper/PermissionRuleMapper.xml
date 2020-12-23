@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.sunnly.modules.admin.mapper.PermissionRuleMapper">
+  <resultMap id="BaseResultMap" type="wang.sunnly.modules.admin.domain.PermissionRule">
+    <!--@mbg.generated generated on Tue Dec 22 20:41:14 CST 2020.-->
+    <!--@Table base_permission_rule-->
+    <result column="prule_id" jdbcType="BIGINT" property="pruleId" />
+    <result column="permission_id" jdbcType="BIGINT" property="permissionId" />
+    <result column="permission_code" jdbcType="VARCHAR" property="permissionCode" />
+    <result column="client_channel" jdbcType="VARCHAR" property="clientChannel" />
+    <result column="prule_permit" jdbcType="BOOLEAN" property="prulePermit" />
+    <result column="prule_type" jdbcType="BOOLEAN" property="pruleType" />
+    <result column="prule_rule" jdbcType="VARCHAR" property="pruleRule" />
+    <result column="prule_status" jdbcType="BOOLEAN" property="pruleStatus" />
+    <result column="prule_count" jdbcType="INTEGER" property="pruleCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Dec 22 20:41:14 CST 2020.-->
+    prule_id, permission_id, permission_code, client_channel, prule_permit, prule_type,
+    prule_rule, prule_status, prule_count
+  </sql>
+</mapper>
