@@ -8,10 +8,10 @@ import wang.sunnly.common.api.entity.UserInfo;
 import wang.sunnly.common.core.security.jwt.utils.JwtUtil;
 import wang.sunnly.common.web.exception.enums.CommonResponseEnum;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
-import wang.sunnly.modules.auth.exception.AuthAssertEnum;
 import wang.sunnly.modules.auth.feign.UserFeign;
 import wang.sunnly.modules.auth.service.AuthService;
 import wang.sunnly.redis.utils.RedisOpsForValue;
+import wang.sunnly.security.exception.AuthAssertEnum;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -27,7 +27,6 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class AuthServiceImpl implements AuthService {
 
-
     @Resource
     private UserFeign userFeign;
 
@@ -39,10 +38,10 @@ public class AuthServiceImpl implements AuthService {
     @Value("${macro.user.locked.timeout:5}")
     private int timeout;
 
-    @Value("${macro.jwt.user.secret:123456}")
+    @Value("${macro.security.user.secret:123456}")
     private String secret;
 
-    @Value("${macro.jwt.user.expired:86400}")
+    @Value("${macro.security.user.expired:86400}")
     private int expired;
 
 

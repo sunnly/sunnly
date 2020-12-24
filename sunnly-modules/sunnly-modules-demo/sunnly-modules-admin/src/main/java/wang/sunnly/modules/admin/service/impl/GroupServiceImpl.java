@@ -2,6 +2,7 @@ package wang.sunnly.modules.admin.service.impl;
 
 import cn.hutool.core.date.DateUtil;
 import org.springframework.stereotype.Service;
+import wang.sunnly.common.core.utils.DateUtils;
 import wang.sunnly.common.core.utils.SnowFlake;
 import wang.sunnly.modules.admin.domain.Group;
 import wang.sunnly.modules.admin.exception.GroupAssertEnum;
@@ -30,7 +31,7 @@ public class GroupServiceImpl
     private SnowFlake snowFlake;
 
     @Override
-    public int insertGroup(Group entity, Long userId, String userName, String userIp) {
+    public int insertGroup(Group entity) {
 
         Long groupId = snowFlake.nextId();
         entity.setGroupId(groupId);
@@ -56,10 +57,10 @@ public class GroupServiceImpl
         //状态为正常
         entity.setGroupStatus("1");
         entity.setType(1);
-        entity.setCreateTime(DateUtil.format(new Date(), "yyyyMMddHHmmss"));
-        entity.setCreateUserId(userId);
-        entity.setCreateUserName(userName);
-        entity.setCreateUserIp(userIp);
+//        entity.setCreateTime(DateUtils.dbCreateTime());
+//        entity.setCreateUserId(userId);
+//        entity.setCreateUserName(userName);
+//        entity.setCreateUserIp(userIp);
 
         return mapper.insert(entity);
     }

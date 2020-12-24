@@ -6,7 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import wang.sunnly.common.web.utils.IpUtils;
 import wang.sunnly.modules.admin.domain.User;
-import wang.sunnly.modules.admin.exception.UserAssertEnum;
+import wang.sunnly.common.api.exception.UserAssertEnum;
 import wang.sunnly.modules.admin.mapper.UserMapper;
 import wang.sunnly.modules.admin.service.UserService;
 import wang.sunnly.common.api.entity.UserInfo;

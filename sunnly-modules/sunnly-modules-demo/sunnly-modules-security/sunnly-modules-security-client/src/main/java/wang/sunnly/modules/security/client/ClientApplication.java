@@ -17,7 +17,6 @@ import wang.sunnly.security.annotation.EnableMacroUserSecurity;
 @EnableMacroUserSecurity
 @EnableDiscoveryClient
 @EnableFeignClients
-@ComponentScan("wang.sunnly")
 public class ClientApplication {
     public static void main(String[] args) {
         SpringApplication.run(ClientApplication.class, args);

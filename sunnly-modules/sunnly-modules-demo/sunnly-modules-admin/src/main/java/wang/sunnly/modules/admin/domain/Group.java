@@ -2,6 +2,7 @@ package wang.sunnly.modules.admin.domain;
 
 import lombok.Data;
 import wang.sunnly.common.core.utils.tree.BaseTreeNode;
+import wang.sunnly.security.domain.MacroDomain;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 
 @Data
 @Table(name = "base_group")
-public class Group extends BaseTreeNode<Long> {
+public class Group extends BaseTreeNode<Long> implements MacroDomain {
     /**
      * 组ID
      */

@@ -18,5 +18,5 @@ import java.util.Map;
 public interface UserFeign {
 
     @PostMapping("user/validate")
-    public ObjectResponse<UserInfo> validate(@RequestBody Map<String, String> authInfo);
+    ObjectResponse<UserInfo> validate(@RequestBody Map<String, String> authInfo);
 }

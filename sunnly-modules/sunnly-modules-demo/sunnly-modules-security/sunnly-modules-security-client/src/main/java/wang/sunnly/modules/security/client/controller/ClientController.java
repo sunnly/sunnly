@@ -19,7 +19,6 @@ public class ClientController {
     private UserSecurityFeign userSecurityFeign;
     @RequestMapping("aaa")
     public String aa(){
-
         return "ssss";
     }
 }

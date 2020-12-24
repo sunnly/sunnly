@@ -26,9 +26,10 @@
             <artifactId>macro-common-api</artifactId>
             <version>1.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>wang.sunnly</groupId>
-            <artifactId>macro-tools-mysql</artifactId>
+            <artifactId>macro-tools-mysql-utils</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

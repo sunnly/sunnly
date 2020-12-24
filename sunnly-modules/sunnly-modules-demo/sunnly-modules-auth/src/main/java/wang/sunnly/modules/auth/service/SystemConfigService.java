@@ -12,6 +12,11 @@ import wang.sunnly.mysql.service.BaseService;
  */
 public interface SystemConfigService extends BaseService<SystemConfigMapper, SystemConfig> {
 
+    /**
+     * 获取系统配置
+     * @param channel 配置所属渠道
+     * @return 返回配置
+     */
     SystemConfig getSysConfigByChannel(String channel);
 }
 

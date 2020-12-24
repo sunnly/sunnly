@@ -7,7 +7,6 @@ package wang.sunnly.modules.auth.service;
  * @since 2020/12/11
  */
 public interface AuthService {
-
     /**
      * 获取锁定时长
      * @param id id

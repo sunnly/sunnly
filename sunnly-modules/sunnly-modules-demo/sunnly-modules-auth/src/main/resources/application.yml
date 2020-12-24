@@ -39,17 +39,22 @@ macro:
       accout: 389943100@qq.com
       password: cwfrvlqkvcgvcabi
 
-  jwt:
-    user:
-      token-header: Authorization
-      secret: 123456
-      expired: 8640000
+#  jwt:
+#    user:
+#      token-header: Authorization
+#      secret: 123456
+#      expired: 8640000
   user:
     locked:
       count: 5
       timeout: 5
 
+  security:
+    user:
+      token-header: Authorization
+      rsa-secret: 123456
+      expired: 8640000
 
 logging:
   level:
-    wang.sunnly.validate.code: debug
+    wang.sunnly: debug

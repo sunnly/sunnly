@@ -23,7 +23,7 @@ public interface GroupService extends BaseService<GroupMapper, Group> {
      * @param userIp   用户IP
      * @return 影响条目
      */
-    int insertGroup(Group entity, Long userId, String userName, String userIp);
+    int insertGroup(Group entity);
 
     List<Group> getChildren(long parentId, int exclude);
 

@@ -20,7 +20,7 @@
 //import org.springframework.web.context.request.ServletRequestAttributes;
 //import wang.sunnly.common.core.security.jwt.utils.JwtUtil;
 //import wang.sunnly.common.web.exception.enums.ArgumentResponseEnum;
-//import wang.sunnly.modules.admin.exception.UserAssertEnum;
+//import wang.sunnly.common.api.exception.UserAssertEnum;
 //import wang.sunnly.modules.admin.service.RoleService;
 //import wang.sunnly.common.api.entity.JwtUserInfo;
 //import wang.sunnly.mysql.annotation.DataPermission;
@@ -46,9 +46,9 @@
 //})
 //public class ColumnPermissionInterceptor implements Interceptor {
 //
-//    @Value("${macro.jwt.user.token-header}")
+//    @Value("${macro.security.user.token-header}")
 //    private String tokenHeader;
-//    @Value("${macro.jwt.user.secret}")
+//    @Value("${macro.security.user.secret}")
 //    private String secret;
 //
 //    @Autowired

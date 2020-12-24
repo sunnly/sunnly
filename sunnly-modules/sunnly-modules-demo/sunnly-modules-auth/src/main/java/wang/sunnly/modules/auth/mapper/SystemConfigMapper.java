@@ -1,10 +1,10 @@
 package wang.sunnly.modules.auth.mapper;
 
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 import wang.sunnly.modules.auth.domain.SystemConfig;
 import wang.sunnly.tk.mybatis.mapper.BaseMapper;
-
-import java.util.List;
 
 public interface SystemConfigMapper extends BaseMapper<SystemConfig> {
 

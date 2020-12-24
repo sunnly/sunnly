@@ -18,7 +18,11 @@ server:
 #    from:
 #      accout: 389943100@qq.com
 #      password: cwfrvlqkvcgvcabi
-#
+#  security:
+#    user:
+#      rsa-secret: 123456
+#    client:
+#      rsa-secret: 123456
 #  jwt:
 #    user:
 #      token-header: Authorization

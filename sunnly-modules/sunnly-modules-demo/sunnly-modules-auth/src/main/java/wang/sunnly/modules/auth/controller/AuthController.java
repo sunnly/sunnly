@@ -9,9 +9,9 @@ import org.springframework.web.context.request.ServletWebRequest;
 import wang.sunnly.common.api.entity.AuthenticationRequest;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.auth.domain.SystemConfig;
-import wang.sunnly.modules.auth.exception.AuthAssertEnum;
 import wang.sunnly.modules.auth.service.AuthService;
 import wang.sunnly.modules.auth.service.SystemConfigService;
+import wang.sunnly.security.exception.AuthAssertEnum;
 import wang.sunnly.validate.service.ValidateService;
 
 import javax.annotation.Resource;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * UserController
+ * AuthController
  * 用户
  *
  * @author Sunnly
@@ -45,7 +45,7 @@ public class AuthController {
                                                        HttpServletRequest request, HttpServletResponse response) {
 
         //断言账户锁定状态
-        AuthAssertEnum.ACCOUT_LOCK.assertGreater(0,
+        AuthAssertEnum.ACCOUNT_LOCK.assertGreater(0,
                 new Double(Math.ceil(authService.lockedTime(authRequest.getUsername()) / 60.0)).longValue());
         //获取账号登录方式
         String channel = StringUtils.isEmpty(authRequest.getChannel()) ? "system" : authRequest.getChannel();
