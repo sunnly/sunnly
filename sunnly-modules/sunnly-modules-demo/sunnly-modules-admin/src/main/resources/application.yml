@@ -24,5 +24,14 @@ macro:
   security:
     user:
       token-header: Authorization
+      secret: 123456
       rsa-secret: 123456
 #      expired: 86400
+    client:
+      client-id: macro-admin
+#      client-rsa-secret: 123456
+      client-secret: 123456
+  feign:
+    client:
+      auth: macro-auth
+

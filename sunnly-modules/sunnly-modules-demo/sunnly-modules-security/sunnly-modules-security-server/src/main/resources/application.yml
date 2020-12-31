@@ -5,7 +5,13 @@ spring:
 
 server:
   port: 20060
-#macro:
+macro:
+  security:
+    client:
+      client-id: macro-security-server
+      client-secret: 123456
+      token-header: x-client-token
+      expired: 8640000
 #  feign:
 #    client:
 #      admin: macro-admin
@@ -29,4 +35,6 @@ server:
 #    locked:
 #      count: 5
 #      timeout: 5
-
+logging:
+  level:
+    wang.sunnly: debug

@@ -29,7 +29,12 @@
 
         <dependency>
             <groupId>wang.sunnly</groupId>
-            <artifactId>macro-tools-mysql-utils</artifactId>
+            <artifactId>macro-tools-security</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>wang.sunnly</groupId>
+            <artifactId>macro-tools-mysql</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

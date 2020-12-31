@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import wang.sunnly.modules.admin.domain.Group;
-import wang.sunnly.mysql.annotation.DataPermission;
 import wang.sunnly.tk.mybatis.mapper.BaseMapper;
 
 import java.util.List;

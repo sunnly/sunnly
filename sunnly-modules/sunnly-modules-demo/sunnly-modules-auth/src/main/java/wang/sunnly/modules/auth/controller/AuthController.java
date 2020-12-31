@@ -12,6 +12,7 @@ import wang.sunnly.modules.auth.domain.SystemConfig;
 import wang.sunnly.modules.auth.service.AuthService;
 import wang.sunnly.modules.auth.service.SystemConfigService;
 import wang.sunnly.security.exception.AuthAssertEnum;
+import wang.sunnly.security.ignore.annotation.IgnoreUserToken;
 import wang.sunnly.validate.service.ValidateService;
 
 import javax.annotation.Resource;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @RestController
 @RequestMapping("/jwt")
+@IgnoreUserToken
 public class AuthController {
 
     private static final String VALIDATE = "1";

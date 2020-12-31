@@ -9,6 +9,7 @@ import wang.sunnly.modules.admin.service.UserService;
 import wang.sunnly.common.api.entity.FrontUserInfo;
 import wang.sunnly.common.api.entity.UserInfo;
 import wang.sunnly.mysql.controller.BaseController;
+import wang.sunnly.security.ignore.annotation.IgnoreUserToken;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -24,9 +25,11 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("user")
+
 public class UserController extends BaseController<UserService, User> {
 
     @GetMapping("pwd/{username}/{password}")
+    @IgnoreUserToken
     public ObjectResponse<String> getPassword(
             @PathVariable("username") String username,
             @PathVariable("password") String password,
@@ -37,11 +40,13 @@ public class UserController extends BaseController<UserService, User> {
                         md5? Md5Utils.getMD5(password,"utf-8") : password));
     }
     @GetMapping("md5/{password}")
+    @IgnoreUserToken
     public ObjectResponse<String> getMd5(@PathVariable("password") String password ){
         return new ObjectResponse<String>().setData(Md5Utils.getMD5(password,"utf-8"));
     }
 
     @PostMapping("validate")
+    @IgnoreUserToken
     public ObjectResponse<UserInfo> validate(@RequestBody Map<String, String> authInfo, HttpServletRequest request) {
         //用户查询验证，返回用户信息
         return new ObjectResponse<>(service.validate(request,authInfo.get("username"), authInfo.get("password")));

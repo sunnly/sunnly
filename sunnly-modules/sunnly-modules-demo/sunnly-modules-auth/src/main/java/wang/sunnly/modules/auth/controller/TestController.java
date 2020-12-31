@@ -2,7 +2,6 @@ package wang.sunnly.modules.auth.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import wang.sunnly.common.web.msg.result.ListResponse;
 import wang.sunnly.modules.auth.feign.PermissionFeign;
@@ -24,7 +23,7 @@ public class TestController {
     @GetMapping("")
     public ListResponse<String> list(){
         permissionFeign.getColumn1("aaaddd");
-        return new ListResponse<String>().setData("sdfs");
+        return new ListResponse<String>().addData("sdfs");
     }
 
 }

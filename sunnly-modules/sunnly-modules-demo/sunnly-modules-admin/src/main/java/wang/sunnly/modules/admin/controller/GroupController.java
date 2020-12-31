@@ -7,8 +7,7 @@ import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.admin.domain.Group;
 import wang.sunnly.modules.admin.service.GroupService;
 import wang.sunnly.mysql.controller.BaseController;
-import wang.sunnly.mysql.utils.MacroDomainUtils;
-import wang.sunnly.security.server.service.MacroDomainService;
+import wang.sunnly.security.server.api.service.MacroTokenDomainService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -27,34 +26,12 @@ import java.util.Map;
 @Slf4j
 public class GroupController extends BaseController<GroupService, Group> {
 
-    // TODO 解析token需重新调整为rsa的
-//    @Value("${macro.security.user.token-header}")
-//    private String tokenHeader;
-//    @Value("${macro.security.user.rsa-secret}")
-//    private String secret;
-
     @Resource
-    private MacroDomainService macroDomainService;
+    private MacroTokenDomainService macroTokenDomainService;
 
     @PostMapping("")
     public ObjectResponse<Group> addGroup(@RequestBody Group entity, HttpServletRequest request) {
-//        String token = request.getHeader(tokenHeader);
-//
-//        // 获取jwt中的用户信息
-//        UserAssertEnum.USER_TOKEN_NOT_EMPTY.assertNotNull(token);
-//
-//        JwtUserInfo jwtInfo = null;
-//
-//        JwtUtil jwtUtil = new JwtUtil();
-//        jwtInfo = (JwtUserInfo) jwtUtil.getJwtInfo(JwtUserInfo.class, token, secret);
-//
-//        ArgumentResponseEnum.TOKEN_NOT_NULL.assertNotNull(jwtInfo);
-//        String userId = jwtInfo.getId();
-//        String username = jwtInfo.getUsername();
-//        String loginIp = jwtInfo.getLoginIp();
-//        String loginTime = jwtInfo.getLoginTime()
-        macroDomainService.setCreateInfo(request, entity);
-
+        macroTokenDomainService.setCreateInfo(request, entity);
 
         return new ObjectResponse<Group>(service.insertGroup(entity) == 1 ? entity : null);
     }
@@ -68,6 +45,7 @@ public class GroupController extends BaseController<GroupService, Group> {
     @GetMapping("/children1/{parentId}")
     public ListResponse<Map<String, Object>> getChildren1(@PathVariable("parentId") long parentId,
                                                           @RequestParam(value = "exclude", defaultValue = "0") int exclude) {
+
         List<Map<String, Object>> children = service.query(parentId, exclude);
 //        TreeNodeUtils<Long, Group> treeNodeUtils = new TreeNodeUtils<Long, Group>()
 //        return new ObjectResponse<>(treeNodeUtils.parseTreeNode(children, parentId))

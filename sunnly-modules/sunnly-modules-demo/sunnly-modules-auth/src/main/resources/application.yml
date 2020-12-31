@@ -5,7 +5,7 @@ spring:
       ds0:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.jdbc.Driver
-        jdbc-url: jdbc:mysql://mysql.sunnly.wang:3306/macro_auth?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        jdbc-url: jdbc:mysql://mysql.sunnly.wang:3306/macro_auth?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
         username: root
         password: sunnly
     props:
@@ -54,6 +54,13 @@ macro:
       token-header: Authorization
       rsa-secret: 123456
       expired: 8640000
+    client:
+#      数据库中id和secret
+      client-id: macro-auth
+      client-secret: 123456
+#      feign头
+      token-header: x-client-token
+#      rsa-secret: rsaClientSecret
 
 logging:
   level:

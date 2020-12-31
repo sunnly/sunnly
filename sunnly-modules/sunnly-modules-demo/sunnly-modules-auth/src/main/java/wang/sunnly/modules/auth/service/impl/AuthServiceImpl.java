@@ -1,17 +1,15 @@
 package wang.sunnly.modules.auth.service.impl;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import wang.sunnly.common.api.entity.JwtUserInfo;
 import wang.sunnly.common.api.entity.UserInfo;
-import wang.sunnly.common.core.security.jwt.utils.JwtUtil;
 import wang.sunnly.common.web.exception.enums.CommonResponseEnum;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.auth.feign.UserFeign;
 import wang.sunnly.modules.auth.service.AuthService;
 import wang.sunnly.redis.utils.RedisOpsForValue;
 import wang.sunnly.security.exception.AuthAssertEnum;
+import wang.sunnly.security.server.api.service.MacroTokenDomainService;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -32,6 +30,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Resource
     private RedisOpsForValue<String,String> redisOpsForValue;
+
+    @Resource
+    private MacroTokenDomainService macroTokenDomainService;
 
     @Value("${macro.user.locked.count:5}")
     private int lockedCount;
@@ -92,14 +93,6 @@ public class AuthServiceImpl implements AuthService {
         redisOpsForValue.delete(VALIDATE_LOCKED_PREFIX_KEY + username);
 
         // jwt token生成
-        JwtUserInfo jwtUserInfo= new JwtUserInfo();
-        BeanUtils.copyProperties(userInfo, jwtUserInfo);
-        JwtUtil jwtUtil = new JwtUtil();
-        try {
-            return jwtUtil.genJwt(jwtUserInfo, secret, expired);
-        } catch (Exception e) {
-            AuthAssertEnum.LOGIN_ERROR.assertFail();
-            return null;
-        }
+        return macroTokenDomainService.genUserToken(userInfo);
     }
 }

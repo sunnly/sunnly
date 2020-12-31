@@ -4,7 +4,7 @@ spring:
 
 server:
   port: 20050
-#macro:
+macro:
 #  feign:
 #    client:
 #      admin: macro-admin
@@ -18,11 +18,12 @@ server:
 #    from:
 #      accout: 389943100@qq.com
 #      password: cwfrvlqkvcgvcabi
-#  security:
+  security:
 #    user:
 #      rsa-secret: 123456
-#    client:
-#      rsa-secret: 123456
+    client:
+      rsa-secret: 123456
+      client-id: macor-security-client
 #  jwt:
 #    user:
 #      token-header: Authorization
@@ -33,3 +34,6 @@ server:
 #      count: 5
 #      timeout: 5
 
+logging:
+  level:
+    wang.sunnly: debug
