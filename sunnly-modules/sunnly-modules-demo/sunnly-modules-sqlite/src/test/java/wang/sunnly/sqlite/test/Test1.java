@@ -2,7 +2,6 @@ package wang.sunnly.sqlite.test;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import com.zaxxer.hikari.pool.HikariProxyResultSet;
 
 import javax.sql.DataSource;
 import java.sql.*;

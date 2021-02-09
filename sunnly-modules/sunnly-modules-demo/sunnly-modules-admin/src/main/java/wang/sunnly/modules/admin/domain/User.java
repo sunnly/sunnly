@@ -1,11 +1,16 @@
 package wang.sunnly.modules.admin.domain;
 
-import javax.persistence.*;
 import lombok.Data;
+import wang.sunnly.security.domain.MacroDomain;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.List;
 
 @Data
 @Table(name = "base_user")
-public class User {
+public class User implements MacroDomain {
 
     /**
      * 用户ID
@@ -140,8 +145,8 @@ public class User {
     /**
      * 状态(0:删除,1:正常,2:锁定,11:待审核,12:审核失败)
      */
-    @Column(name = "`status`")
-    private String status;
+    @Column(name = "user_status")
+    private String userStatus;
 
     /**
      * 创建日期
@@ -190,4 +195,9 @@ public class User {
      */
     @Column(name = "update_user_ip")
     private String updateUserIp;
+
+//    @TableField(exist=false)
+    private transient Long deptId;
+
+    private transient List<Long> userIds;
 }

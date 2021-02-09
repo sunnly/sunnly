@@ -17,3 +17,13 @@ spring:
     name: macro-admin
   profiles:
     active: dev
+
+  main:
+    allow-bean-definition-overriding: true
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+

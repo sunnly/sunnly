@@ -7,8 +7,9 @@ import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.admin.domain.Permission;
 import wang.sunnly.modules.admin.service.PermissionService;
 import wang.sunnly.mysql.controller.BaseController;
+import wang.sunnly.security.server.api.service.MacroTokenDomainService;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -22,18 +23,18 @@ import java.util.Map;
 @RequestMapping("permission")
 public class PermissionController extends BaseController<PermissionService, Permission> {
 
+    @Resource
+    private MacroTokenDomainService macroTokenDomainService;
+
     @PostMapping("column/{permissionCode}")
     public ListResponse<List<String>> getColumn(@RequestBody JwtUserInfo userInfo,
-                                                             @PathVariable("permissionCode") String permissionCode) {
+                                                @PathVariable("permissionCode") String permissionCode) {
         return new ListResponse<>(service.getColumn(userInfo, permissionCode));
     }
 
     @PostMapping("column1/{permissionCode}")
-    public ListResponse<List<String>> getColumn1(@PathVariable("permissionCode") String permissionCode,
-                                                 HttpServletRequest request) {
-        String token = request.getHeader("Authorization");
-        System.out.println(token);
-        return new ListResponse<>(service.getColumn(null, permissionCode));
+    public ListResponse<List<String>> getColumn1(@PathVariable("permissionCode") String permissionCode) {
+        return new ListResponse<>(service.getColumn(macroTokenDomainService.getUserInfo(), permissionCode));
     }
 
     @PostMapping("row/{permissionCode}")

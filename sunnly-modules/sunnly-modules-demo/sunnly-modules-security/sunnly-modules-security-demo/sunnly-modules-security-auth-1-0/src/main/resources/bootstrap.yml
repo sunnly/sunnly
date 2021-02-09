@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.sunnly.wang:8848
+        group: SUNNLY-MICROSERVICES
+#        shared-configs:
+#          - data-id: ${spring.application.name}-${spring.profiles.active}.yml
+#            group: ${spring.cloud.nacos.config.group}
+#        extension-configs:
+#          - data-id: ${spring.application.name}-mysql-${spring.profiles.active}.yml
+#            group: ${spring.cloud.nacos.config.group}
+#            refresh: true
+      discovery:
+        server-addr: nacos.sunnly.wang:8848
+  application:
+    name: macro-auth-1-0
+  profiles:
+    active: dev
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true

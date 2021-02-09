@@ -1,11 +1,15 @@
 package wang.sunnly.modules.admin.domain;
 
-import javax.persistence.*;
 import lombok.Data;
+import wang.sunnly.security.domain.MacroDomain;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Table(name = "base_role")
-public class Role {
+public class Role implements MacroDomain {
     /**
      * 角色ID
      */
@@ -47,7 +51,7 @@ public class Role {
      * 角色类型(0:系统角色,1:三元角色,2:普通角色)
      */
     @Column(name = "role_type")
-    private Boolean roleType;
+    private int roleType;
 
     /**
      * 角色描述
@@ -59,7 +63,7 @@ public class Role {
      * 状态(0:删除,1:正常,11:待审核,12:审核不通过)
      */
     @Column(name = "role_status")
-    private Boolean roleStatus;
+    private int roleStatus;
 
     /**
      * 创建日期

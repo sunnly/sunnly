@@ -1,0 +1,17 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+
+server:
+  port: 50310
+macro:
+  security:
+    client:
+      client-id: macro-security-client
+      client-secret: 123456
+      token-header: x-client-token
+      expired: 8640000
+logging:
+  level:
+    wang.sunnly: debug

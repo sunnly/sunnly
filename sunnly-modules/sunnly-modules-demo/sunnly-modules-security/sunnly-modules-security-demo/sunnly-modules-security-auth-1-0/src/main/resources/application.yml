@@ -1,0 +1,38 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds0
+      ds0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://mysql.sunnly.wang:3306/macro_auth?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: sunnly
+    props:
+      sql.show: true
+  redis:
+    host: redis.sunnly.wang
+    database: 1
+  main:
+    allow-bean-definition-overriding: true
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    cache-enabled: true
+    call-setters-on-nulls: true
+
+
+server:
+  port: 50110
+macro:
+  security:
+    client:
+      client-id: macro-security-auth
+      client-secret: 123456
+      token-header: x-client-token
+      expired: 8640000
+      # 开启服务rsa验证
+#      rsa-secret: 123456
+logging:
+  level:
+    wang.sunnly: debug

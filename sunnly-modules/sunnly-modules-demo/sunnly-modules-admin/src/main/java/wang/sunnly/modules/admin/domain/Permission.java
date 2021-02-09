@@ -1,7 +1,9 @@
 package wang.sunnly.modules.admin.domain;
 
-import javax.persistence.*;
 import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 /**
     * 字段权限表

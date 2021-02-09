@@ -1,7 +1,6 @@
 package wang.sunnly.modules.sqlite.mapper;
 
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Component;
 import wang.sunnly.modules.sqlite.entity.Company;
 
 import java.util.List;

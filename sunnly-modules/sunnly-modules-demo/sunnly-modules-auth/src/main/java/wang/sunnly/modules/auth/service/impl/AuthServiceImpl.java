@@ -3,8 +3,10 @@ package wang.sunnly.modules.auth.service.impl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import wang.sunnly.common.api.entity.UserInfo;
+import wang.sunnly.common.core.utils.DateUtils;
 import wang.sunnly.common.web.exception.enums.CommonResponseEnum;
 import wang.sunnly.common.web.msg.result.ObjectResponse;
+import wang.sunnly.common.web.utils.IpUtils;
 import wang.sunnly.modules.auth.feign.UserFeign;
 import wang.sunnly.modules.auth.service.AuthService;
 import wang.sunnly.redis.utils.RedisOpsForValue;
@@ -12,6 +14,7 @@ import wang.sunnly.security.exception.AuthAssertEnum;
 import wang.sunnly.security.server.api.service.MacroTokenDomainService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -60,7 +63,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String login(String username, String password){
+    public String login(HttpServletRequest request, String username, String password){
         Map<String, String> map = new HashMap<>(2);
         map.put("username",username);
         map.put("password",password);
@@ -88,11 +91,20 @@ public class AuthServiceImpl implements AuthService {
                 CommonResponseEnum.SUCCESS.getCode());
         // 用户登录成功
         UserInfo userInfo = validate.getData();
+        //设置登录信息
+        fill(request, userInfo);
+
         AuthAssertEnum.LOGIN_ERROR.assertNotNull(userInfo);
-        // 登录成功清除登录失败此次
+        // 登录成功清除登录失败次数
         redisOpsForValue.delete(VALIDATE_LOCKED_PREFIX_KEY + username);
 
         // jwt token生成
         return macroTokenDomainService.genUserToken(userInfo);
+    }
+
+    public void fill(HttpServletRequest request, UserInfo userInfo){
+
+        userInfo.setLoginIp(IpUtils.getIpAddr(request));
+        userInfo.setLoginTime(DateUtils.dbCreateTime());
     }
 }

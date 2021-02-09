@@ -3,6 +3,7 @@ package wang.sunnly.modules.admin.service;
 import wang.sunnly.modules.admin.domain.GroupUser;
 import wang.sunnly.modules.admin.mapper.GroupUserMapper;
 import wang.sunnly.mysql.service.BaseService;
+
 /**
  * GroupUserService
  *
@@ -11,5 +12,9 @@ import wang.sunnly.mysql.service.BaseService;
  */
 public interface GroupUserService extends BaseService<GroupUserMapper, GroupUser> {
 
+    int insertGroupUser(Long userId, Long deptId);
 
+    int insertGroupUsers(GroupUser groupUser);
+
+    int deleteGroupUsers(GroupUser groupUser);
 }

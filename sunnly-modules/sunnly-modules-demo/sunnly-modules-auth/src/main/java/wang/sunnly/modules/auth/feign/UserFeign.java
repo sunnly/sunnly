@@ -3,8 +3,8 @@ package wang.sunnly.modules.auth.feign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.common.api.entity.UserInfo;
+import wang.sunnly.common.web.msg.result.ObjectResponse;
 
 import java.util.Map;
 
@@ -17,6 +17,6 @@ import java.util.Map;
 @FeignClient("${macro.feign.client.admin}")
 public interface UserFeign {
 
-    @PostMapping("user/validate")
+    @PostMapping("producer/user/validate")
     ObjectResponse<UserInfo> validate(@RequestBody Map<String, String> authInfo);
 }

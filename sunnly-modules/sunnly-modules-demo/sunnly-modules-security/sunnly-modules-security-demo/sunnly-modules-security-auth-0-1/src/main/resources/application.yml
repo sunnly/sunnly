@@ -1,0 +1,23 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    host: redis.sunnly.wang
+    database: 1
+
+server:
+  port: 50101
+macro:
+  security:
+#    client:
+#      client-id: macro-security-server
+#      client-secret: 123456
+#      token-header: x-client-token
+#      expired: 8640000
+    user:
+      # 开启rsa验证
+      rsa-secret: 123456
+
+logging:
+  level:
+    wang.sunnly: debug

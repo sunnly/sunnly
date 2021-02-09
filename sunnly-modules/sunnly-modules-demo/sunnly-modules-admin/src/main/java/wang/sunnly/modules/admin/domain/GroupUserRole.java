@@ -1,11 +1,16 @@
 package wang.sunnly.modules.admin.domain;
 
-import javax.persistence.*;
 import lombok.Data;
+import wang.sunnly.security.domain.MacroDomain;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.List;
 
 @Data
 @Table(name = "base_group_user_role")
-public class GroupUserRole {
+public class GroupUserRole implements MacroDomain {
     /**
      * 组/用户与角色关联ID
      */
@@ -60,4 +65,46 @@ public class GroupUserRole {
      */
     @Column(name = "create_user_ip")
     private String createUserIp;
+
+    private transient List<Long> roles;
+
+    @Override
+    public void setUpdateUserId(Long updateUserId) {
+
+    }
+
+    @Override
+    public void setUpdateUserName(String updateUserName) {
+
+    }
+
+    @Override
+    public void setUpdateUserIp(String updateUserIp) {
+
+    }
+
+    @Override
+    public void setUpdateTime(String updateTime) {
+
+    }
+
+    @Override
+    public Long getUpdateUserId() {
+        return null;
+    }
+
+    @Override
+    public String getUpdateUserName() {
+        return null;
+    }
+
+    @Override
+    public String getUpdateUserIp() {
+        return null;
+    }
+
+    @Override
+    public String getUpdateTime() {
+        return null;
+    }
 }

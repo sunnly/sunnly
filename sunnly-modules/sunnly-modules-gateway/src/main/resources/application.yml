@@ -34,3 +34,32 @@ spring:
             - StripPrefix=2
 server:
   port: 20020
+logging:
+  level:
+    wang.sunnly.modules.gateway: debug
+
+macro:
+  gate:
+    startWith:
+      ignores:
+#       获取登录页面系统配置
+        - /auth/sys/system
+#        验证码
+        - /auth/code/
+        - /auth/jwt/token
+  feign:
+    client:
+      admin: macro-admin
+  security:
+    user:
+      token-header: Authorization
+      rsa-secret: 123456
+      #      secret: 123456
+      expired: 8640000
+    client:
+      #      数据库中id和secret
+      client-id: macro-auth
+      rsa-secret: rsaClientSecret
+      secret: 123456
+      rsa: true
+      token-header: x-client-token

@@ -1,7 +1,11 @@
 package wang.sunnly.modules.admin.domain;
 
-import javax.persistence.*;
 import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.List;
 
 @Data
 @Table(name = "base_group_user")
@@ -24,4 +28,6 @@ public class GroupUser {
      */
     @Column(name = "user_id")
     private Long userId;
+
+    private transient List<Long> userIds;
 }

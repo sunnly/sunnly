@@ -2,8 +2,8 @@ package wang.sunnly.modules.admin.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import wang.sunnly.modules.admin.domain.Permission;
 import wang.sunnly.modules.admin.domain.DataRules;
+import wang.sunnly.modules.admin.domain.Permission;
 import wang.sunnly.tk.mybatis.mapper.BaseMapper;
 
 import java.util.List;

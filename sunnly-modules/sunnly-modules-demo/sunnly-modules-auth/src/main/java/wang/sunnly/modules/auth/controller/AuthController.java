@@ -49,7 +49,7 @@ public class AuthController {
         //断言账户锁定状态
         AuthAssertEnum.ACCOUNT_LOCK.assertGreater(0,
                 new Double(Math.ceil(authService.lockedTime(authRequest.getUsername()) / 60.0)).longValue());
-        //获取账号登录方式
+        // 获取账号登录方式
         String channel = StringUtils.isEmpty(authRequest.getChannel()) ? "system" : authRequest.getChannel();
         SystemConfig sysConfigByChannel = systemConfigService.getSysConfigByChannel(channel);
         AuthAssertEnum.CHANNEL_ERROR.assertNotNull(sysConfigByChannel);
@@ -64,7 +64,7 @@ public class AuthController {
         }
 
         //账户验证
-        return new ObjectResponse<String>().setData(authService.login(authRequest.getUsername(), authRequest.getPassword()));
+        return new ObjectResponse<String>().setData(authService.login(request, authRequest.getUsername(), authRequest.getPassword()));
     }
 
     @PostMapping("ukey/token")

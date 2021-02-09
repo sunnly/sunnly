@@ -7,6 +7,7 @@ import wang.sunnly.common.web.msg.result.ObjectResponse;
 import wang.sunnly.modules.auth.domain.SystemConfig;
 import wang.sunnly.modules.auth.service.SystemConfigService;
 import wang.sunnly.mysql.controller.BaseController;
+import wang.sunnly.security.ignore.annotation.IgnoreAuthToken;
 
 /**
  * SystemController
@@ -16,6 +17,7 @@ import wang.sunnly.mysql.controller.BaseController;
  */
 @RestController
 @RequestMapping("sys")
+@IgnoreAuthToken
 public class SystemConfigController extends BaseController<SystemConfigService, SystemConfig> {
 
     @RequestMapping("{channel}")

@@ -1,7 +1,6 @@
 package wang.sunnly.modules.auth.service.impl;
 
 import org.springframework.stereotype.Service;
-
 import wang.sunnly.modules.auth.domain.SystemConfig;
 import wang.sunnly.modules.auth.mapper.SystemConfigMapper;
 import wang.sunnly.modules.auth.service.SystemConfigService;

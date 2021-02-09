@@ -10,7 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sunnly-modules-security-server</artifactId>
-
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
 
     <dependencies>
         <!--客户端引入鉴权工具包-->

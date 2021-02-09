@@ -1,7 +1,6 @@
 package wang.sunnly.modules.admin.service.impl;
 
 import org.springframework.stereotype.Service;
-
 import wang.sunnly.modules.admin.domain.PermissionRule;
 import wang.sunnly.modules.admin.mapper.PermissionRuleMapper;
 import wang.sunnly.modules.admin.service.PermissionRuleService;

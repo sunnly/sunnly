@@ -7,6 +7,7 @@ import wang.sunnly.security.domain.MacroDomain;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.List;
 
 @Data
 @Table(name = "base_group")
@@ -226,6 +227,16 @@ public class Group extends BaseTreeNode<Long> implements MacroDomain {
      */
     @Column(name = "update_user_ip")
     private String updateUserIp;
+
+    private transient List<Long> groups;
+
+    /**
+     * 保存可控制的范围
+     *  0: 不允许父级控制
+     *  1: 只运行父级控制
+     *  n: 运行父级以上n层控制，最大值10
+     */
+    private transient int controllable = 10;
 
 
     @Override

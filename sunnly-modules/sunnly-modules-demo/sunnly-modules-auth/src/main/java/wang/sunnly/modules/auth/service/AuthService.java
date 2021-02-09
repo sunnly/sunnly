@@ -1,5 +1,7 @@
 package wang.sunnly.modules.auth.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * AuthService
  *
@@ -22,9 +24,10 @@ public interface AuthService {
 
     /**
      * 获取登录Token
+     * @param request 请求
      * @param username 用户名
      * @param password 密码
      * @return 返回Token
      */
-    String login(String username, String password);
+    String login(HttpServletRequest request, String username, String password);
 }

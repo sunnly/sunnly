@@ -1,7 +1,10 @@
 package wang.sunnly.modules.auth.domain;
 
-import javax.persistence.*;
 import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  * SystemConfig
  * 系统配置
